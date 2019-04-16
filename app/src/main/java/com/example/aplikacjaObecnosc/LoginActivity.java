@@ -7,6 +7,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.aplikacjaObecnosc.Admin.AdminLogowanie;
+import com.example.aplikacjaObecnosc.Student.StudentLogowanie;
+
 import java.net.MalformedURLException;
 
 public class LoginActivity extends AppCompatActivity {

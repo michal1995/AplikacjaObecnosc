@@ -1,24 +1,26 @@
-package com.example.aplikacjaObecnosc;
+package com.example.aplikacjaObecnosc.Student;
 
-import android.annotation.SuppressLint;
+
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.View;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.aplikacjaObecnosc.ServiceClient;
+import com.example.aplikacjaObecnosc.Student.StudentActivity;
+import com.example.aplikacjaObecnosc.Uzytkownicy;
+import com.example.aplikacjaObecnosc.ZalogowanyUzytkownik;
 import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
-import java.io.InterruptedIOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class AdminLogowanie extends AsyncTask<String,String,String>{
+public class StudentLogowanie extends AsyncTask<String,String,String>{
 
     private Context context;
     private TextView debug;
@@ -50,7 +52,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
      * Konstruktor logowanie
      * @param context
      */
-    public AdminLogowanie(Context context, TextView debug, Activity activity)
+    public StudentLogowanie(Context context, TextView debug, Activity activity)
     {
         this.context = context;
         this.debug = debug;
@@ -60,7 +62,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
 
 
 
-        mUzytkownicyTable=ServiceClient.getmInstance().getClient().getTable(Uzytkownicy.class);
+        mUzytkownicyTable= ServiceClient.getmInstance().getClient().getTable(Uzytkownicy.class);
 
     }
 
@@ -70,7 +72,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
     @Override
     protected void onPreExecute() {
         progressDialog = new ProgressDialog(context);
-        progressDialog.setTitle("AdminLogowanie");
+        progressDialog.setTitle("Logowanie");
         progressDialog.show();
     }
 
@@ -119,7 +121,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
             ZalogowanyUzytkownik.inicjalizacja(tmp);
 
 
-            intentMenu = new Intent(context,AdminActivity.class);
+            intentMenu = new Intent(context, StudentActivity.class);
             activity.startActivity(intentMenu);
 
         }

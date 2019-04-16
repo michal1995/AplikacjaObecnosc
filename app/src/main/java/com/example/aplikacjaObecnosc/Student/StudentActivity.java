@@ -1,13 +1,15 @@
-package com.example.aplikacjaObecnosc;
+package com.example.aplikacjaObecnosc.Student;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AdminActivity extends AppCompatActivity {
+import com.example.aplikacjaObecnosc.R;
+
+public class StudentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        setContentView(R.layout.activity_student);
     }
 }
