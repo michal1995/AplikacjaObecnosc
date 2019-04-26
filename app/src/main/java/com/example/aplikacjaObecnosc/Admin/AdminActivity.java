@@ -18,7 +18,7 @@ Context context;
         setContentView(R.layout.activity_admin);
     }
     public void przejdzListaStudentow(View view){
-        startActivity(new Intent(this,ListaStudentowActivity.class));
+        startActivity(new Intent(this,WyswietlStudentowActivity.class));
 
 
 

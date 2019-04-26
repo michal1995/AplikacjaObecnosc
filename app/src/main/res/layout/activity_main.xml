@@ -31,12 +31,12 @@
             android:ems="10"
             android:fontFamily="casual"
             android:inputType="textPersonName"
-            android:text="Login or Email"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp"
             android:typeface="serif"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Login lub album" />
 
         <EditText
             android:id="@+id/etPassword"
@@ -52,11 +52,11 @@
             android:ems="10"
             android:fontFamily="casual"
             android:inputType="textPersonName"
-            android:text="Password"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp"
             android:typeface="serif"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Hasełko" />
 
         <RadioGroup
             android:layout_width="139dp"
@@ -73,6 +73,7 @@
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:checked="true"
                 android:text="Admin" />
 
             <RadioButton

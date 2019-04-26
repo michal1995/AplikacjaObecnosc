@@ -86,7 +86,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
 
         try {
             zalogowany=zwrocDaneLogowania(strings[0], strings[1]);
-            Thread.sleep(2000);
+            Thread.sleep(3000);
 
         } catch (ExecutionException e) {
             e.printStackTrace();
