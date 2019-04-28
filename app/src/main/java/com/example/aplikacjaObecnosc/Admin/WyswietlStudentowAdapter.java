@@ -39,9 +39,15 @@ public class WyswietlStudentowAdapter extends ArrayAdapter<Studenci> {
 
         row.setTag(currentItem);
 
-        TextView list_item= row.findViewById(R.id.list_item);
-        EditText etImie= row.findViewById(R.id.etImie);
-list_item.setText(currentItem.getaEmail());
+        TextView item_email= row.findViewById(R.id.tvEmail);
+        TextView item_imie= row.findViewById(R.id.tvImie);
+        TextView item_nazwisko = row.findViewById(R.id.tvNazwisko);
+        item_email.setText(currentItem.getaEmail());
+
+        item_imie.setText(currentItem.getaImie());
+        item_nazwisko.setText(currentItem.getaNazwisko());
+
+
 
         return row;
     }

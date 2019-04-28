@@ -52,4 +52,16 @@ public class Studenci {
     public void setAnrIndeksu(String anrIndeksu) {
         this.anrIndeksu = anrIndeksu;
     }
+    @com.google.gson.annotations.SerializedName("PId")
+
+    private Integer PId;
+
+
+    public Integer getPId() {
+        return PId;
+    }
+
+    public void setPid(Integer PId) {
+        this.PId = PId;
+    }
 }

@@ -16,6 +16,7 @@ public List<Studenci> listaStudentow;
 public ListView listView;
 public WyswietlStudentow wyswietlStudentow;
 
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
