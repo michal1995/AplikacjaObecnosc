@@ -1,7 +1,7 @@
 package com.example.aplikacjaObecnosc;
-
-
 import android.content.Context;
+
+import com.example.aplikacjaObecnosc.Admin.Studenci;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import java.net.MalformedURLException;
@@ -13,17 +13,10 @@ public class ServiceClient {
     private MobileServiceClient mClient;
     private Context mContext;
     private String mMobileBackendUrl = "https://aplikacjazarzadzaniadlugiem.azurewebsites.net";
-
-    public MobileServiceTable<Uzytkownicy> getmUzytkownikTable() {
-        return mUzytkownikTable;
-    }
-
+    private MobileServiceTable<Studenci> mStudentTable;
+    public MobileServiceTable<Studenci> getmStudentTable() { return mStudentTable; }
     private MobileServiceTable<Uzytkownicy> mUzytkownikTable;
-
-
-
-
-
+    public MobileServiceTable<Uzytkownicy> getmUzytkownikTable(){return mUzytkownikTable;}
     private static ServiceClient mInstance;
 
     /**
@@ -36,6 +29,7 @@ public class ServiceClient {
         mContext = context;
         mClient = new MobileServiceClient(mMobileBackendUrl, mContext);
         mUzytkownikTable = mClient.getTable(Uzytkownicy.class);
+        mStudentTable =mClient.getTable(Studenci.class);
 
     }
 
@@ -53,7 +47,6 @@ public class ServiceClient {
 
     }
 
-
     public MobileServiceClient getClient() {
         return mClient;
     }
@@ -61,9 +54,5 @@ public class ServiceClient {
     {
         return mInstance;
     }
-
-
-
-
 
 }

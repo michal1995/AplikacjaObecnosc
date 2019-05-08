@@ -52,10 +52,10 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
      * Konstruktor logowanie
      * @param context
      */
-    public StudentLogowanie(Context context, TextView debug, Activity activity)
+    public StudentLogowanie(Context context,  Activity activity)
     {
         this.context = context;
-        this.debug = debug;
+        //this.debug = debug;
         this.activity=activity;
         listaUzytkownikow = null;
 
@@ -88,13 +88,11 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
 
         try {
             zalogowany=zwrocDaneLogowania(strings[0], strings[1]);
-            Thread.sleep(2000);
+            Thread.sleep(100);
 
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (MobileServiceException e) {
             e.printStackTrace();
         }
 
@@ -110,9 +108,6 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
      */
     @Override
     protected void onPostExecute(String s) {
-
-
-
         progressDialog.cancel();
 
         if(!zalogowany.isEmpty()){
@@ -123,12 +118,9 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
 
             intentMenu = new Intent(context, StudentActivity.class);
             activity.startActivity(intentMenu);
+            return;
+        }
 
-        }
-        else
-        {
-            debug.setVisibility(View.VISIBLE);
-        }
 
     }
 
@@ -145,7 +137,7 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
      * @throws InterruptedException
      * @throws MobileServiceException
      */
-    private List<Uzytkownicy> zwrocDaneLogowania(String login,String haslo) throws ExecutionException, InterruptedException, MobileServiceException {
+    private List<Uzytkownicy> zwrocDaneLogowania(String login,String haslo) throws ExecutionException, InterruptedException {
 
         return mUzytkownicyTable.where().field("login").eq().val(login).and().field("haslo").eq().val(haslo).execute().get();
     }

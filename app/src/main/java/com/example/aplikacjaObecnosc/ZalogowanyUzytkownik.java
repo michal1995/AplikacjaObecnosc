@@ -1,4 +1,6 @@
 package com.example.aplikacjaObecnosc;
+import com.example.aplikacjaObecnosc.Admin.Studenci;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,18 +43,21 @@ public class ZalogowanyUzytkownik
         return this.zalogowany;
     }
 
-    public void setZalogowany(Uzytkownicy paramUzytkownicy)
+    public void setZalogowany(Uzytkownicy u)
     {
-        instance.zalogowany = paramUzytkownicy;
+        instance.zalogowany = u;
     }
 
-    public void usunElementDoListy(Uzytkownicy paramUzytkownicy)
+    public void usunElementDoListy(Studenci u)
     {
-        instance.listaDodanychUzytkownikow.remove(paramUzytkownicy);
+        instance.listaDodanychUzytkownikow.remove(u);
     }
+
 
     public void zerujElemntyListy()
     {
         instance.listaDodanychUzytkownikow.clear();
     }
+
+
 }

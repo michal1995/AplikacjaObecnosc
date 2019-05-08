@@ -50,10 +50,10 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
      * Konstruktor logowanie
      * @param context
      */
-    public AdminLogowanie(Context context, TextView debug, Activity activity)
+    public AdminLogowanie(Context context,  Activity activity)
     {
         this.context = context;
-        this.debug = debug;
+        //this.debug = debug;
         this.activity=activity;
         listaUzytkownikow = null;
 
@@ -85,8 +85,8 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
 
 
         try {
+            Thread.sleep(1000);
             zalogowany=zwrocDaneLogowania(strings[0], strings[1]);
-            Thread.sleep(3000);
 
         } catch (ExecutionException e) {
             e.printStackTrace();
@@ -111,9 +111,9 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
 
 
 
-        progressDialog.cancel();
+       // progressDialog.cancel();
 
-        if(!zalogowany.isEmpty()){
+       // if(!zalogowany.isEmpty()){
 
             final Uzytkownicy tmp = zalogowany.get(0);
             ZalogowanyUzytkownik.inicjalizacja(tmp);
@@ -122,11 +122,11 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
             intentMenu = new Intent(context, AdminActivity.class);
             activity.startActivity(intentMenu);
 
-        }
-        else
+      //  }
+     /*   else
         {
             debug.setVisibility(View.VISIBLE);
-        }
+        }*/
 
     }
 

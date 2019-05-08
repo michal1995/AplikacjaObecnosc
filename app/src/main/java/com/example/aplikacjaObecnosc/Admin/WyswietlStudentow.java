@@ -2,6 +2,7 @@ package com.example.aplikacjaObecnosc.Admin;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.view.View;
 
 import com.example.aplikacjaObecnosc.ServiceClient;
 import com.microsoft.windowsazure.mobileservices.MobileServiceException;
@@ -45,6 +46,7 @@ this.activity=((WyswietlStudentowActivity) paramactivity);
     {
         this.activity.aktualizujListeWybranych(this.listaStudentow);
     }
+
 
 
 }

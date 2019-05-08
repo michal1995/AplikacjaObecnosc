@@ -15,7 +15,7 @@ import java.net.MalformedURLException;
 public class LoginActivity extends AppCompatActivity {
     EditText login;
     EditText haslo;
-    TextView debug;
+  //  TextView debug;
     RadioButton admin;
     RadioButton student;
 
@@ -27,33 +27,41 @@ public class LoginActivity extends AppCompatActivity {
 
         this.login =(EditText) findViewById(R.id.etLogin);
         this.haslo = (EditText) findViewById(R.id.etPassword);
-        this.debug = (TextView) findViewById(R.id.debug);
+        //this.debug = (TextView) findViewById(R.id.debug);
         this.admin = (RadioButton) findViewById(R.id.rbAdmin);
         this.student = (RadioButton) findViewById(R.id.rbStudent);
-        try
+       try
         {
             ServiceClient.Initialize(this);
-            return;
+           return;
         }
         catch (MalformedURLException paramBundle)
         {
             paramBundle.printStackTrace();
         }
+
     }
 
     public void onClickZaloguj(View view) {
-        debug.setVisibility(View.INVISIBLE);
-        if (admin.isChecked()) {
-            AdminLogowanie myTask = new AdminLogowanie(this, this.debug, this);
-            myTask.execute(new String[]{this.login.getText().toString(), this.haslo.getText().toString()});
-        }
-        else
+       // debug.setVisibility(View.INVISIBLE);
+        try {
+
+            ServiceClient.Initialize(this);
+            if (admin.isChecked()) {
+                AdminLogowanie myTask = new AdminLogowanie(this,  this);
+                myTask.execute(login.getText().toString(), haslo.getText().toString());
+            }
+            else
             if(student.isChecked()){
-                StudentLogowanie myTask = new StudentLogowanie(this,this.debug,this);
-                myTask.execute(new String[]{this.login.getText().toString(),this.haslo.getText().toString()});
+                StudentLogowanie myTask = new StudentLogowanie(this,this);
+                myTask.execute(login.getText().toString(),haslo.getText().toString());
 
 
             }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

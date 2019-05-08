@@ -1,56 +1,90 @@
 package com.example.aplikacjaObecnosc.Admin;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewDebug;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.content.Context;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.aplikacjaObecnosc.R;
+import com.example.aplikacjaObecnosc.ServiceClient;
+import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
 public class WyswietlStudentowAdapter extends ArrayAdapter<Studenci> {
 
     private final Context mContext;
     private final int mLayoutResourceId;
 
+    private MobileServiceTable<Studenci> mStudenci = ServiceClient.getmInstance().getClient().getTable(Studenci.class);
+
+
     public WyswietlStudentowAdapter(Context context,int layoutResourceId) {
         super(context, layoutResourceId);
         mContext = context;
         mLayoutResourceId = layoutResourceId;
-
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable final View convertView, @NonNull ViewGroup parent) {
 
         View row = convertView;
-        final Studenci currentItem = getItem(position);
+         final Studenci currentItem = getItem(position);
         if (row == null) {
             LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
-            row = inflater.inflate(mLayoutResourceId, parent, false);
-        }
+            row = inflater.inflate(mLayoutResourceId, parent, false); }
 
         row.setTag(currentItem);
 
-        TextView item_email= row.findViewById(R.id.tvEmail);
-        TextView item_imie= row.findViewById(R.id.tvImie);
-        TextView item_nazwisko = row.findViewById(R.id.tvNazwisko);
-        item_email.setText(currentItem.getaEmail());
+       final TextView item_email= row.findViewById(R.id.tvEmail);
+       final TextView item_imie= row.findViewById(R.id.tvImie);
+       final TextView item_nazwisko = row.findViewById(R.id.tvNazwisko);
+       final  TextView item_Pid = row.findViewById(R.id.tvKolejnosc);
+       final ImageButton item_usun = row.findViewById(R.id.bUsunStudent);
+       final TextView item_indeks = row.findViewById(R.id.tvIndeks);
+       final TextView item_Haslo = row.findViewById(R.id.tvHaslo);
 
-        item_imie.setText(currentItem.getaImie());
-        item_nazwisko.setText(currentItem.getaNazwisko());
+            item_email.setText(currentItem.getaEmail());
+            item_imie.setText(currentItem.getaImie());
+            item_nazwisko.setText(currentItem.getaNazwisko());
+            position += 1;
+            item_Pid.setText(String.valueOf(position));
+            item_indeks.setText(currentItem.getAnrIndeksu());
+        item_Haslo.setText(currentItem.getaHaslo());
+            final String nr_id = currentItem.getaId();
 
+        final View finalRow = row;
+        item_usun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
 
+                //  WyswietlStudentowActivity activity = (WyswietlStudentowActivity) mContext;
+                 // activity.usunDoListyWybranych(currentItem);
+                // mMobileSeriveStable.delete(currentItem);
+                // Toast.makeText(arg0.getContext(),"jiji",Toast.LENGTH_LONG).show();
+                mStudenci.delete(nr_id);
+                finalRow.setVisibility(View.INVISIBLE);
+
+                }
+            });
 
         return row;
     }
+
+
     @Override
     public boolean isEnabled(int position) {
         return super.isEnabled(position);

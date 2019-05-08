@@ -17,11 +17,19 @@ Context context;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
     }
-    public void przejdzListaStudentow(View view){
-        startActivity(new Intent(this,WyswietlStudentowActivity.class));
-
-
-
-
+    public void przejdzListaStudentow(View view) {
+        startActivity(new Intent(this, WyswietlStudentowActivity.class));
     }
+
+    public void przejdzDodajStudenta(View view) {
+        startActivity(new Intent(this, DodajStudentaActivity.class));
+    }
+    public void przejdzDodajZajecia(View view){
+        startActivity(new Intent(this,DodajZajeciaActivity.class));
+
+        }
+
+
+
+
 }
