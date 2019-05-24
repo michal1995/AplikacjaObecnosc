@@ -21,7 +21,7 @@ import java.util.concurrent.ExecutionException;
 public class AdminLogowanie extends AsyncTask<String,String,String>{
 
     private Context context;
-    private TextView debug;
+   // private TextView debug;
 
     /*
        Komunikuje proces logowania
@@ -42,6 +42,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
     private Activity activity;
     private Intent intentMenu;
     private  List<Uzytkownicy> zalogowany;
+    private  Uzytkownicy tmp;
 
 
 
@@ -55,7 +56,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
         this.context = context;
         //this.debug = debug;
         this.activity=activity;
-        listaUzytkownikow = null;
+       listaUzytkownikow = null;
 
 
 
@@ -85,7 +86,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
 
 
         try {
-            Thread.sleep(1000);
+           // Thread.sleep(1000);
             zalogowany=zwrocDaneLogowania(strings[0], strings[1]);
 
         } catch (ExecutionException e) {
@@ -97,7 +98,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
         }
 
 
-        return "Zalogowano";
+        return null;
     }
 
 
@@ -111,30 +112,31 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
 
 
 
-       // progressDialog.cancel();
+        progressDialog.cancel();
+//        if(!zalogowany.isEmpty()){
 
-       // if(!zalogowany.isEmpty()){
+//            tmp = (Uzytkownicy) zalogowany;
+        try {
+            Thread.sleep(1000);
+            ZalogowanyUzytkownik.inicjalizacja((Uzytkownicy)zalogowany.get(0));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-            final Uzytkownicy tmp = zalogowany.get(0);
-            ZalogowanyUzytkownik.inicjalizacja(tmp);
 
 
             intentMenu = new Intent(context, AdminActivity.class);
             activity.startActivity(intentMenu);
 
-      //  }
+       }
      /*   else
         {
             debug.setVisibility(View.VISIBLE);
         }*/
 
-    }
-
-    @Override
-    protected void onProgressUpdate(String... values) {
 
 
-    }
+   
 
     /**
      * Zwraca zapytanie o

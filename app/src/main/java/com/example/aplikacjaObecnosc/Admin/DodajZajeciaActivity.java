@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import java.util.Calendar;
+import java.util.List;
+
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -11,6 +13,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.DateFormat;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.TimePicker;
 
 
@@ -18,11 +21,21 @@ import com.example.aplikacjaObecnosc.R;
 
 public class DodajZajeciaActivity extends FragmentActivity {
     static EditText etCzas;
+    static EditText etTemat;
+    static EditText etLokalizacja;
+    static ListView lvListaZajec;
 
+    public DodajZajeciaAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dodaj_zajecia);
+
+
+
+    etTemat = findViewById(R.id.etTemat);
+    etLokalizacja = findViewById(R.id.etLokalizacja);
+
         etCzas = findViewById(R.id.etData);
         etCzas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +44,11 @@ public class DodajZajeciaActivity extends FragmentActivity {
                 showTruitonTimePickerDialog(v);
             }
         });
+        ListView lvListaZajec = findViewById(R.id.lvZajecia);
+        mAdapter = new DodajZajeciaAdapter(this,R.layout.wiersz_zajecia);
+        lvListaZajec.setAdapter(mAdapter);
+        DodajZajeciaDoListy dodajZajeciaDoListy = new DodajZajeciaDoListy(this);
+        dodajZajeciaDoListy.execute(new String[0]);
     }
 
     public void showTruitonDatePickerDialog(View v) {
@@ -54,7 +72,7 @@ public class DodajZajeciaActivity extends FragmentActivity {
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
-            etCzas.setText(day + "/" + (month + 1) + "/" + year);
+            etCzas.setText(day + "-" + (month + 1) + "-" + year);
         }
     }
 
@@ -80,4 +98,13 @@ public class DodajZajeciaActivity extends FragmentActivity {
             }
 
         }
+        public void dodajZajecia(View view){
+        DodajZajecia dodajZajecia = new DodajZajecia(this,this);
+        dodajZajecia.execute(etTemat.getText().toString(),etLokalizacja.getText().toString(),etCzas.getText().toString());
+        }
+    public void aktualizujListeWybranych(List<Zajecia> zajecia)
+    {
+        this.mAdapter.addAll(zajecia);
     }
+
+}

@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
        try
         {
             ServiceClient.Initialize(this);
-           return;
         }
         catch (MalformedURLException paramBundle)
         {

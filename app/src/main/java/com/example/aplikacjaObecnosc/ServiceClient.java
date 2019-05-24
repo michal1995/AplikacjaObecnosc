@@ -2,9 +2,11 @@ package com.example.aplikacjaObecnosc;
 import android.content.Context;
 
 import com.example.aplikacjaObecnosc.Admin.Studenci;
+import com.example.aplikacjaObecnosc.Admin.Zajecia;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import java.net.MalformedURLException;
+import java.util.List;
 
 public class ServiceClient {
     /**
@@ -17,7 +19,11 @@ public class ServiceClient {
     public MobileServiceTable<Studenci> getmStudentTable() { return mStudentTable; }
     private MobileServiceTable<Uzytkownicy> mUzytkownikTable;
     public MobileServiceTable<Uzytkownicy> getmUzytkownikTable(){return mUzytkownikTable;}
-    private static ServiceClient mInstance;
+    private MobileServiceTable<Zajecia> mZajeciaTable;
+    public MobileServiceTable<Zajecia> getmZajeciaTable() {
+        return mZajeciaTable;
+    }
+    private static ServiceClient mInstance =null;
 
     /**
      * Prywatny konstruktor tworzy instancje MobileServiceClient
@@ -28,10 +34,11 @@ public class ServiceClient {
     private ServiceClient(Context context) throws MalformedURLException {
         mContext = context;
         mClient = new MobileServiceClient(mMobileBackendUrl, mContext);
-        mUzytkownikTable = mClient.getTable(Uzytkownicy.class);
-        mStudentTable =mClient.getTable(Studenci.class);
-
+        this.mUzytkownikTable = mClient.getTable(Uzytkownicy.class);
+        this.mStudentTable = mClient.getTable(Studenci.class);
+        this.mZajeciaTable = mClient.getTable(Zajecia.class);
     }
+
 
     /**
      * Inicjalizacja statyczna obiektu ServiceClient jeśli nie istnieje

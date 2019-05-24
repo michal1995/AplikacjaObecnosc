@@ -30,7 +30,7 @@ public WyswietlStudentow wyswietlStudentow;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wyswietl_studentow);
 
-            //listaStudentow = new ArrayList<>();
+
             listView = findViewById(R.id.lvStudenci);
 
 

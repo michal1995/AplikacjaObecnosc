@@ -28,6 +28,9 @@ Context context;
         startActivity(new Intent(this,DodajZajeciaActivity.class));
 
         }
+        public void przejdzZmienHaslo(View view){
+        startActivity(new Intent(this,ZmienHasloActivity.class));
+        }
 
 
 
