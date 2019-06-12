@@ -38,14 +38,15 @@ public class DodajStudenta extends AsyncTask<String,Integer, String>{
     protected String doInBackground(String... strings) {
 
 
-        tmpStudent= new Studenci();
-        tmpStudent.setaImie(strings[0]);
-        tmpStudent.setaNazwisko(strings[1]);
-       tmpStudent.setaEmail(strings[2]);
-       tmpStudent.setAnrIndeksu(strings[3]);
-       tmpStudent.setaHaslo(strings[4]);
+
 
        try {
+           tmpStudent= new Studenci();
+           tmpStudent.setaImie(String.valueOf(strings[0]));
+           tmpStudent.setaNazwisko(String.valueOf(strings[1]));
+           tmpStudent.setaEmail(String.valueOf(strings[2]));
+           tmpStudent.setAnrIndeksu(String.valueOf(strings[3]));
+           tmpStudent.setaHaslo(String.valueOf(strings[4]));
 
            listaUzytkownikowTenSamLogin=sprawdzDostepnosc(tmpStudent);
         } catch (ExecutionException e) {

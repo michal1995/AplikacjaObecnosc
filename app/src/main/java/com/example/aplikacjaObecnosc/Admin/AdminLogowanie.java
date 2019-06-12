@@ -18,10 +18,10 @@ import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class AdminLogowanie extends AsyncTask<String,String,String>{
+public class AdminLogowanie extends AsyncTask<String,Integer,String>{
 
     private Context context;
-   // private TextView debug;
+    // private TextView debug;
 
     /*
        Komunikuje proces logowania
@@ -56,7 +56,7 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
         this.context = context;
         //this.debug = debug;
         this.activity=activity;
-       listaUzytkownikow = null;
+        listaUzytkownikow = null;
 
 
 
@@ -86,8 +86,10 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
 
 
         try {
-           // Thread.sleep(1000);
+            // Thread.sleep(1000);
             zalogowany=zwrocDaneLogowania(strings[0], strings[1]);
+            ZalogowanyUzytkownik.inicjalizacja(zalogowany.get(0));
+
 
         } catch (ExecutionException e) {
             e.printStackTrace();
@@ -96,47 +98,31 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
         } catch (MobileServiceException e) {
             e.printStackTrace();
         }
-
+        intentMenu = new Intent(context, AdminActivity.class);
+        activity.startActivity(intentMenu);
 
         return null;
     }
 
 
-
-    /**
-     * Instrukcje wykonujace się po wykonaniu logowania
-     * @param s
-     */
-    @Override
-    protected void onPostExecute(String s) {
-
-
-
+   /* @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
         progressDialog.cancel();
-//        if(!zalogowany.isEmpty()){
+        //        if(!zalogowany.isEmpty()){
 
 //            tmp = (Uzytkownicy) zalogowany;
-        try {
-            Thread.sleep(1000);
-            ZalogowanyUzytkownik.inicjalizacja((Uzytkownicy)zalogowany.get(0));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        // Thread.sleep(1000);
+        ZalogowanyUzytkownik.inicjalizacja(zalogowany.get(0));
+
+        intentMenu = new Intent(context, AdminActivity.class);
+        activity.startActivity(intentMenu);
+*/
 
 
 
-            intentMenu = new Intent(context, AdminActivity.class);
-            activity.startActivity(intentMenu);
 
-       }
-     /*   else
-        {
-            debug.setVisibility(View.VISIBLE);
-        }*/
-
-
-
-   
 
     /**
      * Zwraca zapytanie o
@@ -150,3 +136,4 @@ public class AdminLogowanie extends AsyncTask<String,String,String>{
         return mUzytkownicyTable.where().field("login").eq().val(login).and().field("haslo").eq().val(haslo).execute().get();
     }
 }
+

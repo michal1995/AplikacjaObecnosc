@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+
+
+        android:layout_width="388dp"
+        android:layout_height="189dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="44dp">
+
+                <TextView
+                    android:id="@+id/tvTematZajec"
+                    android:layout_width="60dp"
+                    android:layout_height="44dp"
+                    android:text="Temat Zajec:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvTematt"
+                    android:layout_width="320dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:text="TextView" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="46dp">
+
+                <TextView
+                    android:id="@+id/tvLokalizacjaa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Lokalizacja:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvLokalizacjaa"
+                    android:layout_width="295dp"
+                    android:layout_height="match_parent"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Data spotkania:"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvCzass"
+                    android:layout_width="265dp"
+                    android:layout_height="match_parent"
+                    android:text="TextView" />
+
+            </TableRow>
+
+            <Button
+                android:id="@+id/bZmienHaslo"
+                android:layout_width="276dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="ListaObecnosci" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>

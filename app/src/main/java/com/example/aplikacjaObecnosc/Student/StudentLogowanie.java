@@ -88,7 +88,10 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
 
         try {
             zalogowany=zwrocDaneLogowania(strings[0], strings[1]);
-            Thread.sleep(100);
+            final Uzytkownicy tmp = zalogowany.get(0);
+            ZalogowanyUzytkownik.inicjalizacja(tmp);
+
+
 
         } catch (ExecutionException e) {
             e.printStackTrace();
@@ -110,25 +113,19 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
     protected void onPostExecute(String s) {
         progressDialog.cancel();
 
-        if(!zalogowany.isEmpty()){
+       // if(!zalogowany.isEmpty()){
 
-            final Uzytkownicy tmp = zalogowany.get(0);
-            ZalogowanyUzytkownik.inicjalizacja(tmp);
 
 
             intentMenu = new Intent(context, StudentActivity.class);
             activity.startActivity(intentMenu);
             return;
-        }
+       // }
 
 
     }
 
-    @Override
-    protected void onProgressUpdate(String... values) {
 
-
-    }
 
     /**
      * Zwraca zapytanie o

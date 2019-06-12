@@ -37,8 +37,8 @@ public class DodajZajecia extends AsyncTask<String,Integer,String> {
     protected String doInBackground(String... strings) {
 
         zajecia.setTematZajec(strings[0]);
-       zajecia.setLokalizacja(strings[1]);
-        zajecia.setData(strings[2]);
+        zajecia.setLokalizacja(String.valueOf(strings[1]));
+        zajecia.setData(String.valueOf(strings[2]));
         return null;
     }
 
