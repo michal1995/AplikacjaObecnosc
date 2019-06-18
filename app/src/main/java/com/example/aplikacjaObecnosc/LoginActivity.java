@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 myTask.execute(login.getText().toString(), haslo.getText().toString());
             }
             else
+                ServiceClient.Initialize(this);
             if(student.isChecked()){
                 StudentLogowanie myTask = new StudentLogowanie(this,this);
                 myTask.execute(login.getText().toString(),haslo.getText().toString());

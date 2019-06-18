@@ -8,8 +8,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.aplikacjaObecnosc.Admin.Studenci;
-import com.example.aplikacjaObecnosc.Admin.WyswietlStudentow;
-import com.example.aplikacjaObecnosc.Admin.WyswietlStudentowAdapter;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +19,12 @@ public class ZalogowanyStudent extends AppCompatActivity
         private List<Studenci> listaDodanychUzytkownikow = new ArrayList();
         private Studenci zalogowany;
 
-    private ZalogowanyStudent(Studenci paramUzytkownicy)
+    private ZalogowanyStudent( Studenci paramStudent)
         {
-            this.zalogowany = paramUzytkownicy;
+
+                    this.zalogowany = paramStudent;
+
+
         }
 
         public static ZalogowanyStudent getInstance ()
@@ -33,9 +35,9 @@ public class ZalogowanyStudent extends AppCompatActivity
             return instance;
         }
 
-        public static void inicjalizacja (Studenci paramUzytkownicy)
+        public static void inicjalizacja (Studenci paramStudent)
         {
-            instance = new ZalogowanyStudent(paramUzytkownicy);
+            instance = new ZalogowanyStudent(paramStudent);
         }
 
         public void dodajElementDoListy (Studenci paramUzytkownicy)

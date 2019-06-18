@@ -31,13 +31,11 @@
             android:ems="10"
             android:fontFamily="casual"
             android:inputType="textPersonName"
-            android:text="test"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp"
             android:typeface="serif"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="test" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/etPassword"
@@ -53,12 +51,10 @@
             android:ems="10"
             android:fontFamily="casual"
             android:inputType="textPersonName"
-            android:text="test"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp"
             android:typeface="serif"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="test" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioGroup
             android:layout_width="139dp"
