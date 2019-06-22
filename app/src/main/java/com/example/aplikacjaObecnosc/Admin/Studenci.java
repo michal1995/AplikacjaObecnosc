@@ -1,10 +1,11 @@
 package com.example.aplikacjaObecnosc.Admin;
 
 public class Studenci {
+
+
     @com.google.gson.annotations.SerializedName("id")
-    private String aId;
-         public String getaId() {return aId;}
-            public  void  setaId(String aId){this.aId=aId;  }
+    private String id;
+
     @com.google.gson.annotations.SerializedName("Imie")
     private String aImie;
          public String getaImie(){return aImie;}
@@ -52,6 +53,16 @@ public class Studenci {
     public void setAnrIndeksu(String anrIndeksu) {
         this.anrIndeksu = anrIndeksu;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
    /* @com.google.gson.annotations.SerializedName("PId")
 
     private Integer PId;

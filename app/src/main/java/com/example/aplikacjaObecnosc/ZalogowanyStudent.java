@@ -19,7 +19,7 @@ public class ZalogowanyStudent extends AppCompatActivity
         private List<Studenci> listaDodanychUzytkownikow = new ArrayList();
         private Studenci zalogowany;
 
-    private ZalogowanyStudent( Studenci paramStudent)
+    public ZalogowanyStudent(Studenci paramStudent)
         {
 
                     this.zalogowany = paramStudent;

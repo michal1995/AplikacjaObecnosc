@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="match_parent"
+    tools:context=".Student.ZmienSwojeHasloActivity">
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
@@ -33,7 +33,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tvimie"
+                    android:id="@+id/tvSwojeImie"
                     android:layout_width="90dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
@@ -47,7 +47,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tvnazwisko"
+                    android:id="@+id/tvSwojeNazwisko"
                     android:layout_width="162dp"
                     android:layout_height="match_parent"
                     android:text="TextView" />
@@ -74,7 +74,7 @@
             </TableRow>
 
             <Button
-                android:id="@+id/bZmienHaslo"
+                android:id="@+id/bZmienSwojeHaslo"
                 android:layout_width="322dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"

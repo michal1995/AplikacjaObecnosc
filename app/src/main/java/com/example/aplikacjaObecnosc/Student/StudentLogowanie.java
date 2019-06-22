@@ -48,9 +48,9 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
      */
     private Activity activity;
     private Intent intentMenu;
-    private  List<Studenci> zalogowanyy;
-    private Object LoginActivity;
 
+    private LoginActivity activityLogin;
+    public List<Studenci> zalogowanyy ;
 
     /**
      * Konstruktor logowanie
@@ -61,7 +61,7 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
         this.context = context;
         //this.debug = debug;
         this.activity=activity;
-        listaStudentow = null;
+        //listaStudentow = null;
 
 
     }
@@ -87,7 +87,7 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
 
 
         try {
-            zalogowanyy =zwrocDaneLogowania(strings[0], strings[1]);
+             zalogowanyy  =zwrocDaneLogowania(strings[0], strings[1]);
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -117,14 +117,15 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
 
             intentMenu = new Intent(context, StudentActivity.class);
             activity.startActivity(intentMenu);
-            return;
+
         }
         else{
 
-          // Toast.makeText(,"Podano zly login lub haslo",Toast.LENGTH_LONG).show();
+           //activity.startActivity(new Intent(context,LoginActivity.class));
+           Toast.makeText(context,"niepoprawny login lub haslo :)",Toast.LENGTH_LONG).show();
        }
 
-
+        return ;
     }
 
 

@@ -8,10 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.aplikacjaObecnosc.R;
 import com.example.aplikacjaObecnosc.ServiceClient;
@@ -54,7 +54,7 @@ private Context context;
          super(pItem);
          mImie = (TextView) pItem.findViewById(R.id.tvimie);
          mNazwisko = (TextView) pItem.findViewById(R.id.tvnazwisko);
-         mHaslo = (EditText) pItem.findViewById(R.id.etHaslo);
+         mHaslo = (EditText) pItem.findViewById(R.id.etSwojeHaslo);
          bzmienhaslo = (Button) pItem.findViewById(R.id.bZmienHaslo);
       }
    }
@@ -119,6 +119,8 @@ private Context context;
                      studenci = listaStudentoww.get(0);
                      studenci.setaHaslo(String.valueOf(holder.mHaslo.getText()));
                      mStudenci.update(studenci).get();
+                     Toast.makeText(context,"Zmieniono Haslo",Toast.LENGTH_LONG).show();
+
                   } catch (InterruptedException e) {
                      e.printStackTrace();
                   } catch (ExecutionException e) {

@@ -23,7 +23,7 @@ public class DodajStudentaActivity extends AppCompatActivity {
         et_Nazwisko = findViewById(R.id.etNazwisko);
         etEmail = findViewById(R.id.etEmail);
         etNrIndeksu = findViewById(R.id.etNrIndeksu);
-        etHaslo = findViewById(R.id.etHaslo);
+        etHaslo = findViewById(R.id.etSwojeHaslo);
 
     }
 

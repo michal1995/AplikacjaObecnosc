@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Student.WyswietlZajeciaActivity"></activity>
+        <activity android:name=".Student.ZmienSwojeHasloActivity"></activity>
+        <activity android:name=".Student.WyswietlGrupeStudentowActivity" />
+        <activity android:name=".Student.WyswietlZajeciaActivity" />
         <activity android:name=".Admin.ZmienHasloActivity" />
         <activity android:name=".Admin.DodajZajeciaActivity" />
         <activity android:name=".Admin.DodajStudentaActivity" />

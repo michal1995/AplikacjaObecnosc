@@ -93,7 +93,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
        listaObecnosci.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent i = new Intent(v.getContext(),WyswietlStudentowActivity.class);
+               Intent i = new Intent(v.getContext(),WyswietlGrupeStudentowActivity.class);
                v.getContext().startActivity(i);
            }
        });

@@ -3,6 +3,7 @@ import android.content.Context;
 
 import com.example.aplikacjaObecnosc.Admin.Studenci;
 import com.example.aplikacjaObecnosc.Admin.Zajecia;
+import com.example.aplikacjaObecnosc.Student.Grupa;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import java.net.MalformedURLException;
@@ -20,9 +21,9 @@ public class ServiceClient {
     private MobileServiceTable<Uzytkownicy> mUzytkownikTable;
     public MobileServiceTable<Uzytkownicy> getmUzytkownikTable(){return mUzytkownikTable;}
     private MobileServiceTable<Zajecia> mZajeciaTable;
-    public MobileServiceTable<Zajecia> getmZajeciaTable() {
-        return mZajeciaTable;
-    }
+    public MobileServiceTable<Zajecia> getmZajeciaTable() { return mZajeciaTable; }
+    private MobileServiceTable<Grupa> mGrupa;
+    public MobileServiceTable<Grupa> getmGrupa(){return mGrupa;}
     private static ServiceClient mInstance =null;
 
     /**
@@ -37,6 +38,7 @@ public class ServiceClient {
         this.mUzytkownikTable = mClient.getTable(Uzytkownicy.class);
         this.mStudentTable = mClient.getTable(Studenci.class);
         this.mZajeciaTable = mClient.getTable(Zajecia.class);
+        this.mGrupa = mClient.getTable(Grupa.class);
     }
 
 
