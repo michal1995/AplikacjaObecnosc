@@ -50,7 +50,7 @@ public class ZalogowanyStudent extends AppCompatActivity
             return instance.listaDodanychUzytkownikow;
         }
 
-        public Studenci getZalogowanyUzytkownik ()
+        public Studenci getZalogowanyStudent ()
         {
             return this.zalogowany;
         }

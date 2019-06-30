@@ -25,7 +25,7 @@ import java.security.acl.LastOwnerException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class StudentLogowanie extends AsyncTask<String,String,String>{
+public class StudentLogowanie extends AsyncTask<String,Integer,String>{
 
     private Context context;
     private TextView debug;
@@ -93,6 +93,9 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        catch (MobileServiceException e){
+            e.printStackTrace();
+        }
         //final Studenci tmpa = zalogowanyy.get(0);
 
 
@@ -110,23 +113,22 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
     protected void onPostExecute(String s) {
         progressDialog.cancel();
 
-       if(!zalogowanyy.isEmpty()){
+        if (!zalogowanyy.isEmpty()) {
 
 
-             ZalogowanyStudent.inicjalizacja(zalogowanyy.get(0));
+            ZalogowanyStudent.inicjalizacja(zalogowanyy.get(0));
 
             intentMenu = new Intent(context, StudentActivity.class);
             activity.startActivity(intentMenu);
 
+        } else {
+
+            //activity.startActivity(new Intent(context,LoginActivity.class));
+            Toast.makeText(context, "niepoprawny login lub haslo :)", Toast.LENGTH_LONG).show();
         }
-        else{
 
-           //activity.startActivity(new Intent(context,LoginActivity.class));
-           Toast.makeText(context,"niepoprawny login lub haslo :)",Toast.LENGTH_LONG).show();
-       }
-
-        return ;
     }
+
 
 
 
@@ -136,7 +138,7 @@ public class StudentLogowanie extends AsyncTask<String,String,String>{
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    private List<Studenci> zwrocDaneLogowania(String Imie,String Nazwisko) throws ExecutionException, InterruptedException {
+    private List<Studenci> zwrocDaneLogowania(String Imie,String Nazwisko) throws ExecutionException, InterruptedException,MobileServiceException {
 
         return mStudentTable.where().field("Imie").eq().val(Imie).and().field("Nazwisko").eq().val(Nazwisko).execute().get();
     }

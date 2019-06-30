@@ -34,11 +34,11 @@ MobileServiceTable<Studenci> mStudenci = ServiceClient.getmInstance().getClient(
         Button bZmienSwojeHaslo = findViewById(R.id.bZmienSwojeHaslo);
 
         TextView swojeImie = findViewById(R.id.tvSwojeImie);
-        swojeImie.setText(ZalogowanyStudent.getInstance().getZalogowanyUzytkownik().getaImie());
+        swojeImie.setText(ZalogowanyStudent.getInstance().getZalogowanyStudent().getaImie());
         TextView swojeNazwisko = findViewById(R.id.tvSwojeNazwisko);
-        swojeNazwisko.setText(ZalogowanyStudent.getInstance().getZalogowanyUzytkownik().getaNazwisko());
+        swojeNazwisko.setText(ZalogowanyStudent.getInstance().getZalogowanyStudent().getaNazwisko());
         final EditText etSwojeHaslo = findViewById(R.id.etSwojeHaslo);
-        etSwojeHaslo.setText(ZalogowanyStudent.getInstance().getZalogowanyUzytkownik().getaHaslo());
+        etSwojeHaslo.setText(ZalogowanyStudent.getInstance().getZalogowanyStudent().getaHaslo());
         bZmienSwojeHaslo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +51,7 @@ MobileServiceTable<Studenci> mStudenci = ServiceClient.getmInstance().getClient(
                         try {
                            // listaStudentoww = mStudenci.where().field("nrIndeksu").eq().val(nrIndeksu).execute().get();
                           //  studenci = listaStudentoww.get(0);
-                            student = ZalogowanyStudent.getInstance().getZalogowanyUzytkownik();
+                            student = ZalogowanyStudent.getInstance().getZalogowanyStudent();
                             student.setaHaslo(String.valueOf(etSwojeHaslo.getText()));
                             mStudenci.update(student).get();
                         } catch (InterruptedException e) {

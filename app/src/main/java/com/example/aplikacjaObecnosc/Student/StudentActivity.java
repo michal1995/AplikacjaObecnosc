@@ -21,9 +21,9 @@ public class StudentActivity extends AppCompatActivity {
        // asd = new ZalogowanyStudent(new Studenci());
 
 
-        @SuppressLint("WrongViewCast")
-        TextView zalogowany =findViewById(R.id.tvZalogowanyJako);
-        zalogowany.setText(ZalogowanyStudent.getInstance().getZalogowanyUzytkownik().getaImie());
+        //@SuppressLint("WrongViewCast")
+       // TextView zalogowany =findViewById(R.id.tvZalogowanyJako);
+        //zalogowany.setText(ZalogowanyStudent.getInstance().getZalogowanyUzytkownik().getaImie());
     }
     public void przejdzdoWyswietlZajecia(View view){
         startActivity(new Intent(this,WyswietlZajeciaActivity.class));
