@@ -1,26 +1,23 @@
 # AplikacjaObecnosc - attendance list app
-Attendace list app is a software for student's whcich manage thier present.
-Mobile app is divided into two parts: Administrator's can add lectures and manage students accounts
-and Student's who can add own present to attendance list.  
-
-## General info
-Project realize for cours PGS SOFTWARE. Purpose of the projest is request for requrements 
-Add more general information about project. What the purpose of the project is? Motivation?
+Attendace list is a mobile app for student's and lecturer. Purpose of the project is check student present.
+Mobile app is divided into two parts: Administrator can add lectures and manage student accounts
+and Student who can add own presence to attendance list.
+The project will be created for the needs of graduation work.
 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 
 ## Technologies
     
-    Programming language: Java version 8 update 201
-    Toolkit: Android Studio 3.3.2
+ Programming language: Java version 8 update 201
+ Toolkit: Android Studio 3.3.2
 
 ## Setup
-    Project should be run in the Android version 8.1 (API level 27)
+ Project should be run in the Android version 8.1 (API level 27)
 
 
 ## Features
-    List of features ready.
+ List of features ready.
 
             Administrator's capabilities:
 
@@ -48,7 +45,7 @@ Add more general information about project. What the purpose of the project is? 
              - password change
              
  TODOs for future development.
- 
+            - The student will be use electronic ID to mark presence on lecture
 
 
 ## Status
