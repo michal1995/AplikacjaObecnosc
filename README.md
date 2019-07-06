@@ -1,17 +1,7 @@
 # AplikacjaObecnosc - attendance list app
 Attendace list app is a software for student's whcich manage thier present.
 Mobile app is divided into two parts: Administrator's can add lectures and manage students accounts
-and Student's who can add own present to attendance list.   
-
-## Table of contents
-* [General info](#general-info)
-* [Screenshots](#screenshots)
-* [Technologies](#technologies)
-* [Setup](#setup)
-* [Features](#features)
-* [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
+and Student's who can add own present to attendance list.  
 
 ## General info
 Project realize for cours PGS SOFTWARE. Purpose of the projest is request for requrements 
@@ -21,17 +11,16 @@ Add more general information about project. What the purpose of the project is? 
 ![Example screenshot](./img/screenshot.png)
 
 ## Technologies
-Azure Mobile App Service
+    
+    Programming language: Java version 8 update 201
+    Toolkit: Android Studio 3.3.2
 
 ## Setup
-Project 
-Describe how to install / setup your local environement / add link to demo version.
-Android 
+    Project should be run in the Android version 8.1 (API level 27)
+
 
 ## Features
-List of features ready and TODOs for future development
-
-    To-Do list:
+    List of features ready.
 
             Administrator's capabilities:
 
@@ -57,6 +46,10 @@ List of features ready and TODOs for future development
              - edit information about yourself
 
              - password change
+             
+ TODOs for future development.
+ 
+
 
 ## Status
 Project is: in progress.
