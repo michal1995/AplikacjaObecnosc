@@ -5,7 +5,7 @@ and Student who can add own presence to attendance list.
 The project will be created for the needs of graduation work.
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Example Gif](./img/GIFF.gif)
 
 ## Technologies
     
