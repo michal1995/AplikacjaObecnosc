@@ -90,7 +90,7 @@ public class DodajStudenta extends AsyncTask<String,Integer, String>{
         }
         else
             //textZajetyLogin.setVisibility(View.VISIBLE);
-            Toast.makeText(this.activity,"dsadsa",Toast.LENGTH_LONG);
+            Toast.makeText(this.activity,"nr indeksu zajety",Toast.LENGTH_LONG);
     }
 
     /**

@@ -19,14 +19,15 @@ public class WyswietlStudentowAdapter extends ArrayAdapter<Studenci> {
 
     private final Context mContext;
     private final int mLayoutResourceId;
-
+Activity activity;
     private MobileServiceTable<Studenci> mStudenci = ServiceClient.getmInstance().getClient().getTable(Studenci.class);
 
 
-    public WyswietlStudentowAdapter(Context context,int layoutResourceId) {
+    public WyswietlStudentowAdapter(Context context,int layoutResourceId,Activity activity) {
         super(context, layoutResourceId);
         mContext = context;
         mLayoutResourceId = layoutResourceId;
+        this.activity = activity;
     }
 
     @NonNull
@@ -68,9 +69,11 @@ public class WyswietlStudentowAdapter extends ArrayAdapter<Studenci> {
                 // mMobileSeriveStable.delete(currentItem);
                 // Toast.makeText(arg0.getContext(),"jiji",Toast.LENGTH_LONG).show();
                 mStudenci.delete(nr_id);
-                finalRow.setVisibility(View.INVISIBLE);
+                //finalRow.setVisibility(View.INVISIBLE);
+                activity.recreate();
 
-                }
+
+            }
             });
 
         return row;

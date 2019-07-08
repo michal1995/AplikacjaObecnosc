@@ -149,25 +149,23 @@
 
                 <ListView
                     android:id="@+id/lvZajecia"
-
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="top"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="8dp"
-                    android:fastScrollAlwaysVisible="true"
-                    android:fastScrollEnabled="true"
+                    android:fastScrollAlwaysVisible="false"
+                    android:fastScrollEnabled="false"
                     android:paddingTop="5dp"
-                    android:scrollbarAlwaysDrawHorizontalTrack="true"
-                    android:scrollbarAlwaysDrawVerticalTrack="true"
-                    android:stackFromBottom="true"
+                    android:scrollbarAlwaysDrawHorizontalTrack="false"
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    android:stackFromBottom="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

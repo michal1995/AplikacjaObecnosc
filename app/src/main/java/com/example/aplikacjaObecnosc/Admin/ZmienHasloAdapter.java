@@ -119,7 +119,6 @@ private Context context;
                      studenci = listaStudentoww.get(0);
                      studenci.setaHaslo(String.valueOf(holder.mHaslo.getText()));
                      mStudenci.update(studenci).get();
-                     Toast.makeText(context,"Zmieniono Haslo",Toast.LENGTH_LONG).show();
 
                   } catch (InterruptedException e) {
                      e.printStackTrace();
@@ -138,6 +137,14 @@ private Context context;
 
                   return null;
                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    super.onPostExecute(s);
+                    Toast.makeText(context,"Zmieniono Haslo",Toast.LENGTH_LONG).show();
+
+
+                }
             }.execute();
 
             // usuwamy element ze źródła danych

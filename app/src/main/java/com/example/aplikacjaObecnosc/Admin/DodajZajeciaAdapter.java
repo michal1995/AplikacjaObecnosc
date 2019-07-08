@@ -55,7 +55,7 @@ public class DodajZajeciaAdapter extends ArrayAdapter<Zajecia> {
         item_lokalizacja.setText(currentItem.getLokalizacja());
         item_czas = row.findViewById(R.id.tvCzas);
         item_czas.setText(currentItem.getData());
-        item_usun = row.findViewById(R.id.bUsunStudent2);
+        item_usun = row.findViewById(R.id.bUsunZajecia);
         final String nr_id = currentItem.getaId();
 
         final View finalRow = row;

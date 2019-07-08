@@ -72,7 +72,7 @@ public class DodajZajeciaActivity extends FragmentActivity {
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
-            etCzas.setText(day + "-" + (month + 1) + "-" + year);
+            etCzas.setText(year + "-" + (month + 1) + "-" + day);
         }
     }
 

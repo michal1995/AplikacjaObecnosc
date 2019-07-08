@@ -56,11 +56,6 @@ public class AdminLogowanie extends AsyncTask<String,Integer,String>{
         this.context = context;
         //this.debug = debug;
         this.activity=activity;
-        listaUzytkownikow = null;
-
-
-
-
         mUzytkownicyTable= ServiceClient.getmInstance().getClient().getTable(Uzytkownicy.class);
 
     }
@@ -98,6 +93,7 @@ public class AdminLogowanie extends AsyncTask<String,Integer,String>{
         } catch (MobileServiceException e) {
             e.printStackTrace();
         }
+        progressDialog.cancel();
         intentMenu = new Intent(context, AdminActivity.class);
         activity.startActivity(intentMenu);
 

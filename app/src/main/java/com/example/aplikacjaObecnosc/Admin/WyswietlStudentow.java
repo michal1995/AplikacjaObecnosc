@@ -8,13 +8,14 @@ import com.example.aplikacjaObecnosc.ServiceClient;
 import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class WyswietlStudentow extends AsyncTask<String,String,List<Studenci>> {
     private MobileServiceTable<Studenci> mStudenci = ServiceClient.getmInstance().getClient().getTable(Studenci.class);
     WyswietlStudentowActivity activity;
-    private List<Studenci> listaStudentow;
+    private List<Studenci> listaStudentow = new ArrayList();
 
     public WyswietlStudentow (Activity paramactivity ){
 
