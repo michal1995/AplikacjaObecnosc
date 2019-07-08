@@ -1,8 +1,8 @@
 # AplikacjaObecnosc - attendance list app
-Attendace list is a mobile app for student and lecturer. Purpose of the project is check student present.
+Attendace list is a mobile app for student and lecturer. The main objective of the project  is check student present.
 Mobile app is divided into two parts: Administrator can add lectures and manage student accounts
 and Student who can add own presence to attendance list.
-The project will be created for the needs of graduation work.
+
 
 ## Screenshots
 ![Example Gif](./img/GIFF.gif)
@@ -19,35 +19,38 @@ The project will be created for the needs of graduation work.
 ## Features
  List of features ready.
 
-            Administrator capabilities:
+   Administrator capabilities:
 
-            - login to the system
+   - login to the system
 
-            - display list of students
+   - display list of students
 
-            - add / delete the student account
+   - add / delete the student account
 
-            - change of the student account password
+   - change of the student account password
 
-            - add / edit / remove lectures
+   - add / edit / remove lectures
 
 
-            Student options:
+   Student options:
+        
+   - Login to the system
 
-             - Login to the system
-
-             - display a list of all classes
+   - display a list of all classes
              
-             - password change
+   - password change
              
  TODOs for future development.
  
-            - Administrator edit student account
-            - Administrator edit lectures
+   - Administrator edit student account
+  
+   - Administrator edit lectures
             
-            - Student sign up for a list of attendance at specific classes
-            - Student edit information about yourself
-            - Student will be use electronic ID to mark presence on lecture
+   - Student sign up for a list of attendance at specific classes
+   
+   - Student edit information about yourself
+   
+   - Student will be use electronic ID to mark presence on lecture
 
 
 ## Status
