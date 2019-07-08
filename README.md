@@ -1,5 +1,5 @@
 # AplikacjaObecnosc - attendance list app
-Attendace list is a mobile app for student's and lecturer. Purpose of the project is check student present.
+Attendace list is a mobile app for student and lecturer. Purpose of the project is check student present.
 Mobile app is divided into two parts: Administrator can add lectures and manage student accounts
 and Student who can add own presence to attendance list.
 The project will be created for the needs of graduation work.
@@ -19,33 +19,35 @@ The project will be created for the needs of graduation work.
 ## Features
  List of features ready.
 
-            Administrator's capabilities:
+            Administrator capabilities:
 
             - login to the system
 
             - display list of students
 
-            - add / edit / delete the student's account
+            - add / delete the student account
 
-            - change of the student's account password
+            - change of the student account password
 
             - add / edit / remove lectures
 
 
-            Student's options:
+            Student options:
 
              - Login to the system
 
              - display a list of all classes
-
-             - sign up for a list of attendance at specific classes
-
-             - edit information about yourself
-
+             
              - password change
              
  TODOs for future development.
-            - The student will be use electronic ID to mark presence on lecture
+ 
+            - Administrator edit student account
+            - Administrator edit lectures
+            
+            - Student sign up for a list of attendance at specific classes
+            - Student edit information about yourself
+            - Student will be use electronic ID to mark presence on lecture
 
 
 ## Status
