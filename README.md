@@ -61,4 +61,4 @@ This app is inspired by Microsoft documentation
 (https://docs.microsoft.com/pl-pl/azure/app-service-mobile/app-service-mobile-android-how-to-use-client-library)
 
 ## Contact
-Created by Michał Respekta (email: michal.respekta@gmail.com ) - feel free to contact me!
+Created by Michał Respekta (email: respekta.michal@gmail.com ) - feel free to contact me!
