@@ -24,6 +24,6 @@ WyswietlZajeciaAdapter mAdapter;
     }
     public void AktualizujListe(List<Zajecia> zajecie){
         mAdapter = new WyswietlZajeciaAdapter(this,zajecie);
-listaZajec.setAdapter(mAdapter);
+        listaZajec.setAdapter(mAdapter);
     }
 }

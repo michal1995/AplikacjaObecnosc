@@ -27,6 +27,11 @@ public class Grupa {
         StudentId = studentId;
     }
 
+
+
+    @com.google.gson.annotations.SerializedName("ZajeciaId")
+    
+    private String ZajeciaId;
     public String getZajeciaId() {
         return ZajeciaId;
     }
@@ -35,7 +40,17 @@ public class Grupa {
         ZajeciaId = zajeciaId;
     }
 
-    @com.google.gson.annotations.SerializedName("ZajeciaId")
-   private String ZajeciaId;
+    @com.google.gson.annotations.SerializedName("Obecnosc")
+
+    private Boolean Obecnosc;
+
+    public Boolean getObecnosc() {
+        return Obecnosc;
+    }
+
+    public void setObecnosc(Boolean Obecnosc) {
+        this.Obecnosc = Obecnosc;
+    }
+
 
 }

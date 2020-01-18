@@ -38,6 +38,7 @@ public class ZalogowanyUzytkownik
         return instance.listaDodanychUzytkownikow;
     }
 
+    public String getUserId(){return this.zalogowany.getmId();}
     public Uzytkownicy getZalogowanyUzytkownik()
     {
         return this.zalogowany;

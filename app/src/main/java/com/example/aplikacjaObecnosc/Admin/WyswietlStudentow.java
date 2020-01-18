@@ -19,7 +19,7 @@ public class WyswietlStudentow extends AsyncTask<String,String,List<Studenci>> {
 
     public WyswietlStudentow (Activity paramactivity ){
 
-this.activity=((WyswietlStudentowActivity) paramactivity);
+        this.activity=((WyswietlStudentowActivity) paramactivity);
     }
 
     public List<Studenci> zwrocStudentow() throws MobileServiceException,ExecutionException,InterruptedException{
@@ -45,7 +45,7 @@ this.activity=((WyswietlStudentowActivity) paramactivity);
 
     protected void onPostExecute(List<Studenci> paramList)
     {
-        this.activity.aktualizujListeWybranych(this.listaStudentow);
+       // this.activity.aktualizujListeDoKalendarza(this.listaStudentow);
     }
 
 

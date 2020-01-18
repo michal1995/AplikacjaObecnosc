@@ -18,13 +18,14 @@ import android.widget.TimePicker;
 
 
 import com.example.aplikacjaObecnosc.R;
+import com.example.aplikacjaObecnosc.ZalogowanyUzytkownik;
 
 public class DodajZajeciaActivity extends FragmentActivity {
     static EditText etCzas;
     static EditText etTemat;
     static EditText etLokalizacja;
     static ListView lvListaZajec;
-
+    DodajZajeciaActivity activity;
     public DodajZajeciaAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,8 @@ public class DodajZajeciaActivity extends FragmentActivity {
 
 
 
-    etTemat = findViewById(R.id.etTemat);
-    etLokalizacja = findViewById(R.id.etLokalizacja);
+        etTemat = findViewById(R.id.etTemat);
+        etLokalizacja = findViewById(R.id.etLokalizacja);
 
         etCzas = findViewById(R.id.etData);
         etCzas.setOnClickListener(new View.OnClickListener() {
@@ -76,11 +77,12 @@ public class DodajZajeciaActivity extends FragmentActivity {
         }
     }
 
-    public void showTruitonTimePickerDialog(View v) {
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "timePicker");
+            public void showTruitonTimePickerDialog(View v) {
+
+            DialogFragment newFragment = new TimePickerFragment();
+            newFragment.show(getSupportFragmentManager(), "timePicker");
     }
-        public static class TimePickerFragment extends DialogFragment implements
+            public static class TimePickerFragment extends DialogFragment implements
                 TimePickerDialog.OnTimeSetListener {
 
             public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -98,13 +100,15 @@ public class DodajZajeciaActivity extends FragmentActivity {
             }
 
         }
+
         public void dodajZajecia(View view){
         DodajZajecia dodajZajecia = new DodajZajecia(this,this);
         dodajZajecia.execute(etTemat.getText().toString(),etLokalizacja.getText().toString(),etCzas.getText().toString());
         }
-    public void aktualizujListeWybranych(List<Zajecia> zajecia)
-    {
+
+        public void aktualizujListeWybranych(List<Zajecia> zajecia)
+        {
         this.mAdapter.addAll(zajecia);
-    }
+        }
 
 }

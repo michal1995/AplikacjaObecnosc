@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.aplikacjaObecnosc">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.nfc"
+        android:required="true"/>
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -12,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Student.ZmienSwojeHasloActivity"></activity>
+        <activity android:name=".NfcModule"></activity>
+        <activity android:name=".Student.ZmienSwojeHasloActivity" />
         <activity android:name=".Student.WyswietlGrupeStudentowActivity" />
         <activity android:name=".Student.WyswietlZajeciaActivity" />
         <activity android:name=".Admin.ZmienHasloActivity" />
@@ -27,8 +31,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Admin.AdminActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Admin.AdminActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

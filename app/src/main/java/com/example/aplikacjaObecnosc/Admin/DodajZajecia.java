@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.example.aplikacjaObecnosc.ServiceClient;
+import com.example.aplikacjaObecnosc.ZalogowanyUzytkownik;
 import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
@@ -21,9 +22,11 @@ import static android.support.v4.content.ContextCompat.startActivity;
 public class DodajZajecia extends AsyncTask<String,Integer,String> {
     private MobileServiceTable<Zajecia> mZajeciaTable;
     private List<Zajecia> listaZajec;
-    Zajecia zajecia = new Zajecia();;
+    Zajecia zajecia = new Zajecia();
     DodajZajeciaActivity activity;
     ProgressDialog progressDialog;
+    private String idTeacher = ZalogowanyUzytkownik.getInstance().getUserId();
+
 
     public DodajZajecia(DodajZajeciaActivity activity, Context context) {
         this.activity = activity;
@@ -39,6 +42,7 @@ public class DodajZajecia extends AsyncTask<String,Integer,String> {
         zajecia.setTematZajec(strings[0]);
         zajecia.setLokalizacja(String.valueOf(strings[1]));
         zajecia.setData(String.valueOf(strings[2]));
+        zajecia.setidTeacher(idTeacher);
         return null;
     }
 

@@ -5,7 +5,13 @@ public class Studenci {
 
     @com.google.gson.annotations.SerializedName("id")
     private String id;
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
     @com.google.gson.annotations.SerializedName("Imie")
     private String aImie;
          public String getaImie(){return aImie;}
@@ -33,6 +39,7 @@ public class Studenci {
     public void setaEmail(String aEmail) {
         this.aEmail = aEmail;
     }
+
     @com.google.gson.annotations.SerializedName("Haslo")
     private String aHaslo;
 
@@ -43,6 +50,7 @@ public class Studenci {
     public void setaHaslo(String aHaslo) {
         this.aHaslo = aHaslo;
     }
+
     @com.google.gson.annotations.SerializedName("nrIndeksu")
     private String anrIndeksu;
 
@@ -54,13 +62,18 @@ public class Studenci {
         this.anrIndeksu = anrIndeksu;
     }
 
-    public String getId() {
-        return id;
+    @com.google.gson.annotations.SerializedName("studentTag")
+    private String studentTag;
+
+    public String getstudentTag() {
+        return studentTag;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setstudentTag(String studentTag) {
+        this.studentTag = studentTag;
     }
+
+
 
 
    /* @com.google.gson.annotations.SerializedName("PId")

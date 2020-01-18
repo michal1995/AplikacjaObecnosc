@@ -1,160 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    android:baselineAligned="false"
+    android:weightSum="2"
     tools:context=".LoginActivity">
 
     <RelativeLayout
-        android:layout_width="202dp"
-        android:layout_height="738dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" >
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="252dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="266dp"
+            android:layout_centerInParent="true"
             app:srcCompat="@drawable/listastudentow" />
     </RelativeLayout>
 
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="207dp"
-        android:layout_height="526dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.668">
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="37dp"
-            android:layout_marginLeft="37dp"
-            android:layout_marginTop="38dp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="Index/Email"
-            android:textSize="24sp" />
+        android:layout_weight="1">
 
-        <EditText
-            android:id="@+id/etLogin"
-            android:layout_width="139dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="31dp"
-            android:layout_marginRight="31dp"
-            android:ems="10"
-            android:fontFamily="casual"
-            android:inputType="textPersonName"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="18sp"
-            android:typeface="serif"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:weightSum="2">
 
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="124dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="125dp"
-            android:layout_marginEnd="46dp"
-            android:layout_marginRight="46dp"
-            android:text="Password"
-            android:textSize="24sp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.9">
 
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="139dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="155dp"
-            android:layout_marginEnd="33dp"
-            android:layout_marginRight="33dp"
-            android:ems="10"
-            android:fontFamily="casual"
-            android:inputType="textPersonName"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="18sp"
-            android:typeface="serif"
-            app:layout_constraintEnd_toEndOf="parent" />
 
-        <RadioGroup
-            android:layout_width="139dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/button"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="31dp"
-            android:layout_marginRight="31dp"
-            android:layout_marginBottom="8dp">
+                <EditText
+                    android:id="@+id/etLogin"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textView5"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="casual"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textSize="18sp"
+                    android:typeface="serif" />
 
-            <RadioButton
-                android:id="@+id/rbAdmin"
-                android:layout_width="128dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="Admin" />
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textView19"
+                    android:layout_centerHorizontal="true"
+                    android:autofillHints=""
+                    android:fontFamily="casual"
+                    android:inputType="textPassword"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textSize="18sp"
+                    android:typeface="serif" />
 
-            <RadioButton
-                android:id="@+id/rbStudent"
-                android:layout_width="128dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Student" />
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etLogin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="@string/password"
+                    android:textSize="24sp" />
 
-        </RadioGroup>
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:text="@string/index_or_email"
+                    android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="141dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="192dp"
-            android:onClick="onClickZaloguj"
-            android:text="Sign In"
-            android:textColor="@android:color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:background="@android:color/holo_blue_light" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:background="?android:attr/colorPrimary"
+                    android:focusable="auto"
+
+                    android:onClick="onClickZaloguj"
+                    android:text="@string/sign_in"
+                    android:textAllCaps="false"
+                    android:textColor="@color/cardview_light_background"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/checkOptionsRG"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/button"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp">
+
+                    <RadioButton
+                        android:id="@+id/rbAdmin"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:checked="true"
+                        android:text="@string/admin" />
+
+                    <RadioButton
+                        android:id="@+id/rbStudent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/student" />
+
+                </RadioGroup>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -7,16 +7,18 @@
     android:layout_height="match_parent">
 
     <TableRow
-        android:layout_width="395dp"
-        android:layout_height="171dp"
+        android:layout_width="398dp"
+        android:layout_height="210dp"
         android:gravity="center"
         android:paddingTop="15dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="46dp">
+        tools:layout_editor_absoluteY="37dp">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -127,13 +129,17 @@
                         android:layout_height="match_parent" />
                 </LinearLayout>
 
-                <ImageButton
-                    android:id="@+id/bUsunStudent"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    app:srcCompat="@drawable/trash2"
-                    tools:layout_editor_absoluteX="403dp"
-                    tools:layout_editor_absoluteY="46dp" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/bUsunStudent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Usun" />
+                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>

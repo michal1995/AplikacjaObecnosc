@@ -27,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
 
         this.login =(EditText) findViewById(R.id.etLogin);
         this.haslo = (EditText) findViewById(R.id.etPassword);
-        //this.debug = (TextView) findViewById(R.id.debug);
         this.admin = (RadioButton) findViewById(R.id.rbAdmin);
         this.student = (RadioButton) findViewById(R.id.rbStudent);
        try

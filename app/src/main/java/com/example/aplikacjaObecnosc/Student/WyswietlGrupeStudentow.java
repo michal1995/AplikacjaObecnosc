@@ -53,7 +53,7 @@ protected List<Studenci> doInBackground(String... paramVarArgs) {
         return null;
         }
 
-protected void onPostExecute(List<Studenci> paramList)
+        protected void onPostExecute(List<Studenci> paramList)
         {
         this.activity.aktualizujListeWybranych(this.listaStudentow);
         }

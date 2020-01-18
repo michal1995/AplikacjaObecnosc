@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -46,7 +47,7 @@ Activity activity;
        final TextView item_imie= row.findViewById(R.id.tvImie);
        final TextView item_nazwisko = row.findViewById(R.id.tvNazwisko);
        final  TextView item_Pid = row.findViewById(R.id.tvKolejnosc);
-       final ImageButton item_usun = row.findViewById(R.id.bUsunStudent);
+       final Button item_usun = row.findViewById(R.id.bUsunStudent);
        final TextView item_indeks = row.findViewById(R.id.tvIndeks);
        final TextView item_Haslo = row.findViewById(R.id.tvHaslo);
 

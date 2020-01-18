@@ -2,6 +2,7 @@ package com.example.aplikacjaObecnosc.Admin;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,11 +12,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.aplikacjaObecnosc.NfcModule;
 import com.example.aplikacjaObecnosc.R;
 import com.example.aplikacjaObecnosc.ServiceClient;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static android.support.v4.content.ContextCompat.startActivity;
+
 
 public class DodajZajeciaAdapter extends ArrayAdapter<Zajecia> {
 
@@ -23,7 +29,6 @@ public class DodajZajeciaAdapter extends ArrayAdapter<Zajecia> {
     private TextView item_lokalizacja;
     private TextView item_czas;
     private ImageButton item_usun;
-    private MobileServiceTable<Zajecia> mZajecia = ServiceClient.getmInstance().getClient().getTable(Zajecia.class);
 
 
     private final Context mContext;
@@ -32,7 +37,6 @@ public class DodajZajeciaAdapter extends ArrayAdapter<Zajecia> {
         super(context, resource);
         mContext = context;
         ResourceId = resource;
-
     }
 
     @NonNull
@@ -62,8 +66,12 @@ public class DodajZajeciaAdapter extends ArrayAdapter<Zajecia> {
         item_usun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mZajecia.delete(nr_id);
-                finalRow.setVisibility(View.INVISIBLE);
+                Intent intent = new Intent(v.getContext(), NfcModule.class);
+                startActivity(getContext(),intent,null);
+
+
+                //mZajecia.delete(nr_id);
+                //finalRow.setVisibility(View.INVISIBLE);
             }
         });
 
