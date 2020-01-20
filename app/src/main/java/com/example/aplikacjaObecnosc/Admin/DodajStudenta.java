@@ -36,10 +36,6 @@ public class DodajStudenta extends AsyncTask<String,Integer, String>{
     }
     @Override
     protected String doInBackground(String... strings) {
-
-
-
-
        try {
            tmpStudent= new Studenci();
            tmpStudent.setaImie(String.valueOf(strings[0]));

@@ -41,7 +41,7 @@ public class DodajZajeciaAdapter extends ArrayAdapter<Zajecia> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable final View convertView, @NonNull ViewGroup parent) {
        // return super.getView(position, convertView, parent);
         View row = convertView;
         final Zajecia currentItem = getItem(position);
@@ -66,7 +66,9 @@ public class DodajZajeciaAdapter extends ArrayAdapter<Zajecia> {
         item_usun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(v.getContext(), NfcModule.class);
+                intent.putExtra("ZajeciaId",currentItem.getaId());
                 startActivity(getContext(),intent,null);
 
 

@@ -42,15 +42,14 @@ public class Grupa {
 
     @com.google.gson.annotations.SerializedName("Obecnosc")
 
-    private Boolean Obecnosc;
+    private boolean Obecnosc;
 
-    public Boolean getObecnosc() {
+    public boolean getObecnosc() {
         return Obecnosc;
     }
 
-    public void setObecnosc(Boolean Obecnosc) {
-        this.Obecnosc = Obecnosc;
-    }
+    public void setObecnosc(boolean obecnosc) { Obecnosc = obecnosc; }
+
 
 
 }

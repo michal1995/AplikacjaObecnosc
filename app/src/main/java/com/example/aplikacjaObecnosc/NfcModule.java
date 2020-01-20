@@ -1,6 +1,7 @@
 package com.example.aplikacjaObecnosc;
 
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
@@ -8,6 +9,7 @@ import android.nfc.Tag;
 import android.nfc.tech.IsoDep;
 import android.nfc.tech.Ndef;
 import android.nfc.tech.NfcA;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.aplikacjaObecnosc.Admin.Studenci;
+import com.example.aplikacjaObecnosc.Admin.Zajecia;
+import com.example.aplikacjaObecnosc.Student.Grupa;
+import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class NfcModule extends AppCompatActivity {
     private NfcAdapter nfcAdapter;
@@ -25,6 +35,14 @@ public class NfcModule extends AppCompatActivity {
     Boolean startListen= false;
     Integer click =0;
     AddPresenceNFC addPresenceNFC;
+    Zajecia mZajecia;
+    Studenci mStudenci;
+    List<Studenci> listaStudenci;
+    private MobileServiceTable<Studenci> mStudentTable =  ServiceClient.getmInstance().getClient().getTable(Studenci.class);
+    private MobileServiceTable<Grupa> mGrupaTable = ServiceClient.getmInstance().getClient().getTable(Grupa.class);
+    Grupa mGrupa;
+    ProgressDialog progressDialog;
+
     private final String[][] techList = new String[][]{
             new String[]{
                     NfcA.class.getName(),
@@ -108,16 +126,57 @@ public class NfcModule extends AppCompatActivity {
         if (intent.getAction().equals(NfcAdapter.ACTION_TAG_DISCOVERED)) {
             textViewInfo.setText("NFC Tag\n" + ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID)));
             //tag = intent.getParcelableExtra(NfcAdapter.EXTRA_DATA);
-            tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+           // tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+                dodajStudenta(intent);
+            //textinfo.setText("dsads");
 
-            textinfo.setText("dsads");
-
-            Log.i("TagExtra", " taggeg" + tag.toString());
-            addPresenceNFC = new AddPresenceNFC(this,this);
-            addPresenceNFC.execute(ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID)));
+            //Log.i("TagExtra", " taggeg" + tag.toString());
+//            addPresenceNFC = new AddPresenceNFC();
+//            addPresenceNFC.execute(ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID)));
 
         }
 
+
+    }
+
+    public void dodajStudenta(Intent intent){
+      final String studentTag = ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID));
+      final String data= getIntent().getStringExtra("ZajeciaId");
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final List<Studenci> results = mStudentTable.where().field("studentTag").eq().val(studentTag).execute().get();
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mGrupa = new Grupa();
+                            mGrupa.setStudentId(results.get(0).getId());
+                            mGrupa.setZajeciaId(data);
+                            mGrupa.setObecnosc(true);
+
+                            try {
+                                mGrupaTable.insert(mGrupa).get();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            } catch (ExecutionException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                } catch (Exception exception) {
+                    Log.i("tag","error:" + exception);
+                }
+
+
+                return null;
+            }
+
+        };
+        task.execute();
+        Toast.makeText(this,"Dodano studenta " ,Toast.LENGTH_SHORT).show();
 
     }
 

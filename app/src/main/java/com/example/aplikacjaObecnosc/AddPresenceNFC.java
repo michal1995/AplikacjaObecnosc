@@ -3,6 +3,7 @@ package com.example.aplikacjaObecnosc;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.aplikacjaObecnosc.Admin.Studenci;
 import com.example.aplikacjaObecnosc.Admin.Zajecia;
@@ -10,6 +11,7 @@ import com.example.aplikacjaObecnosc.Student.Grupa;
 import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
+import java.io.Console;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -22,67 +24,74 @@ public class AddPresenceNFC  extends AsyncTask<String,Integer, String> {
     private MobileServiceTable<Studenci> mStudentTable =  ServiceClient.getmInstance().getClient().getTable(Studenci.class);
     private MobileServiceTable<Grupa> mGrupaTable = ServiceClient.getmInstance().getClient().getTable(Grupa.class);
     Grupa mGrupa;
-    NfcModule activity;
 
-    public AddPresenceNFC(NfcModule activity, Context context)
+    public AddPresenceNFC()
     {
-        this.activity= activity;
-        progressDialog = new ProgressDialog(context);
         // textZajetyLogin = activity.findViewById(R.id.tvZajetyStudent);
     }
 
-    @Override
-    protected void onPreExecute() {
-        progressDialog.setTitle("Trwa dodawanie obecności...");
-        progressDialog.show();
-    }
-
-    private List<Studenci> sprawdzTagStudent(Studenci uzytkownik) throws ExecutionException, InterruptedException {
-        String student = uzytkownik.getstudentTag();
-        return  mStudentTable.where().field("studentTag").eq().val(uzytkownik.getstudentTag()).execute().get();
-    }
 
     @Override
-    protected String doInBackground(final String... strings) {
-
-        new Thread(new Runnable() {
-
-            public void run() {
-                try {
-                    mStudenci = new Studenci();
-                    mStudenci.setstudentTag(String.valueOf(strings[0]));
-                    listaStudenci =sprawdzTagStudent(mStudenci);
-
-                    mGrupa = new Grupa();
-                    mGrupa.setStudentId(listaStudenci.get(0).getId());
-                    mGrupa.setObecnosc(true);
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                    return;
-                } catch (InterruptedException e) {
-                    e.printStackTrace();}
+    protected String doInBackground( String... strings) {
 
 
-            }
-        }).start();
+        try {
+            mStudenci = new Studenci();
+            mStudenci.setstudentTag(String.valueOf(strings[0]));
+            listaStudenci = sprawdzTagStudent(mStudenci);
+            listaStudenci = mStudentTable.where().field("studentTag").eq().val("2B3355E3").execute().get();
+            Log.i("lista","student"+ listaStudenci);
+            mGrupa = new Grupa();
+            mGrupa.setStudentId(listaStudenci.get(0).getId());
+            mGrupa.setObecnosc(true);
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
         //textZajetyLogin.setVisibility(View.INVISIBLE);
         return null;
     }
 
 
 
+    private List<Studenci> sprawdzTagStudent(Studenci uzytkownik) throws ExecutionException, InterruptedException {
+        String student = uzytkownik.getstudentTag();
+        Log.i("tag","student" + student);
+
+        return  mStudentTable.where().field("studentTag").eq().val("2B3355E3").execute().get();
+
+    }
+
 
     @Override
     protected void onPostExecute(String s) {
-        try {
-            mGrupaTable.insert(mGrupa).get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-            return;
-        } catch (InterruptedException e) {
-            e.printStackTrace();}
-
         this.progressDialog.cancel();
+        new Thread(new Runnable() {
+
+            public void run() {
+                try {
+                    dodajDoGrupy(mGrupa);
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (MobileServiceException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+    }
+
+    private void dodajDoGrupy(Grupa grupa) throws ExecutionException, InterruptedException, MobileServiceException {
+        mGrupaTable.insert(grupa).get();
     }
 
 
