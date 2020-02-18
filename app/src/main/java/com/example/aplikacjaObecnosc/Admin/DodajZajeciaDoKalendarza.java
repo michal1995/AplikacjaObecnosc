@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 
 import com.example.aplikacjaObecnosc.ServiceClient;
+import com.example.aplikacjaObecnosc.ZalogowanyUzytkownik;
 import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
@@ -16,6 +17,7 @@ public class DodajZajeciaDoKalendarza extends AsyncTask<String,String, List<Zaje
     WyswietlStudentowActivity activityStudent;
     private List<Zajecia> listaZajec;
     private List<Zajecia> listaZajec2;
+    private String idTeacher = ZalogowanyUzytkownik.getInstance().getUserId();
 
 
 
@@ -27,7 +29,7 @@ public class DodajZajeciaDoKalendarza extends AsyncTask<String,String, List<Zaje
 
     public List<Zajecia> zwrocZajecia() throws MobileServiceException, ExecutionException,InterruptedException{
 
-        return mZajecia.execute().get();
+        return mZajecia.where().field("idTeacher").eq().val(idTeacher).execute().get();
     }
 
 

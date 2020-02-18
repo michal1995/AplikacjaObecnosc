@@ -19,21 +19,22 @@
             android:id="@+id/panel2Layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.5" >
-        <com.applandeo.materialcalendarview.CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
-            app:headerColor="@color/colorPrimary">
+            android:layout_weight="1.1" >
 
-        </com.applandeo.materialcalendarview.CalendarView>
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                app:headerColor="@color/colorPrimary">
+
+            </com.applandeo.materialcalendarview.CalendarView>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/panel3Layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5"
+            android:layout_weight="0.9"
             >
 
             <ListView

@@ -7,7 +7,12 @@ import android.provider.ContactsContract;
 import android.util.Log;
 
 import com.applandeo.materialcalendarview.CalendarView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.applandeo.materialcalendarview.EventDay;
@@ -38,7 +43,7 @@ public class WyswietlStudentowActivity extends Activity {
    // private List<EventDStudenciay> mEventDays = new ArrayList<>();
    List<EventDay> events = new ArrayList<>();
    public List<Zajecia> listaZ = new ArrayList();
-
+    TextView busun;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -72,12 +77,20 @@ public class WyswietlStudentowActivity extends Activity {
 
 
         ListView lvListaZajec = findViewById(R.id.lvZajeciaCalendar);
-        mAdapter = new DodajZajeciaAdapter(this,R.layout.wiersz_zajecia);
+        mAdapter = new DodajZajeciaAdapter(this,R.layout.wiersz_zajecia,true);
+
         lvListaZajec.setAdapter(mAdapter);
         DodajZajeciaDoKalendarza dodajZajeciaDoListy = new DodajZajeciaDoKalendarza(this);
         dodajZajeciaDoListy.execute(new String[0]);
-        Log.i(TAG,"dataListazajec: " + listaZajec.size());
 
+        LayoutInflater inflater = getLayoutInflater();
+        ViewGroup header = (ViewGroup)inflater.inflate(R.layout.header_lv,lvListaZajec,false);
+        lvListaZajec.addHeaderView(header);
+
+        busun= header.findViewById(R.id.tvUsun);
+        busun.setText("NFC");
+
+    //busun.setVisibility(View.INVISIBLE);
 
         mCalendarView.setOnDayClickListener(new OnDayClickListener() {
             @Override
@@ -141,7 +154,7 @@ public class WyswietlStudentowActivity extends Activity {
     {
         this.mAdapter.addAll(zajeciax);
         listaZajec  = zajeciax;
-        Log.i(TAG,"dsad" + listaZajec.get(0).getaId());
+        //Log.i(TAG,"dsad" + listaZajec.get(0).getaId());
         calendarEventDays();
 
     }

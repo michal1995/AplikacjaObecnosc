@@ -21,19 +21,23 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageButton
-                android:id="@+id/ibListaStudentow"
+            <Button
+                android:id="@+id/idListaStudentow"
                 android:layout_width="130dp"
                 android:layout_height="120dp"
                 android:layout_centerInParent="true"
                 android:onClick="przejdzListaStudentow"
-                app:srcCompat="@drawable/lista2" />
+                android:text="@string/fa_user_friend"
+                app:srcCompat="@drawable/lista2"
+                android:background="@null"
+
+                android:textSize="100dp"/>
 
             <TextView
                 android:id="@+id/ListaStudentow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ibListaStudentow"
+                android:layout_below="@id/idListaStudentow"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="ListaStudentow" />
@@ -45,7 +49,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageButton
+            <Button
                 android:id="@+id/imageButton3"
                 android:layout_width="130dp"
                 android:layout_height="120dp"
@@ -53,6 +57,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginRight="15dp"
                 android:onClick="przejdzDodajStudenta"
+                android:text="@string/fa_user"
+                android:textSize="100dp"
+                android:background="@null"
                 app:srcCompat="@drawable/listadodaj2" />
 
             <TextView
@@ -83,13 +90,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageButton
+            <Button
                 android:id="@+id/imageButton6"
                 android:layout_width="130dp"
                 android:layout_height="120dp"
                 android:layout_centerInParent="true"
                 android:onClick="przejdzDodajZajecia"
-                app:srcCompat="@drawable/zmienlista22" />
+                android:text="@string/fa_tasks"
+                app:srcCompat="@drawable/zmienlista22"
+                android:background="@null"
+                android:textSize="100dp"/>
 
             <TextView
                 android:id="@+id/textView16"
@@ -107,14 +117,17 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageButton
+            <Button
                 android:id="@+id/imageButton7"
                 android:layout_width="130dp"
                 android:layout_height="120dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:onClick="przejdzZmienHaslo"
-                app:srcCompat="@drawable/zmienlista" />
+                android:text="@string/fa_key"
+                android:background="@null"
+                app:srcCompat="@drawable/zmienlista"
+                android:textSize="100dp"/>
 
             <TextView
                 android:id="@+id/textView17"

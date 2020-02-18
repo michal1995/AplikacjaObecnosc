@@ -6,40 +6,45 @@
     android:layout_height="match_parent"
     android:scrollbarAlwaysDrawHorizontalTrack="true"
     android:scrollbarAlwaysDrawVerticalTrack="true">
+
     <LinearLayout
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="49dp"
         android:orientation="horizontal"
         android:scrollbarAlwaysDrawHorizontalTrack="true"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbars="horizontal"
-        tools:layout_editor_absoluteX="8dp"
+
         tools:layout_editor_absoluteY="16dp">
 
         <TextView
             android:id="@+id/tvTemat"
-            android:layout_width="112dp"
+            android:layout_width="55dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:paddingLeft="10dp" />
 
         <TextView
             android:id="@+id/tvLokalizacja"
-            android:layout_width="121dp"
-            android:layout_height="59dp"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/tvCzas"
-            android:layout_width="79dp"
-            android:layout_height="84dp"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <ImageButton
+        <Button
             android:id="@+id/bUsunZajecia"
-            android:layout_width="wrap_content"
+            android:layout_width="5dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            app:srcCompat="@drawable/trash2" />
+            android:background="@null"
+            android:gravity="center"
+            android:textSize="20sp" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -3,13 +3,16 @@ package com.example.aplikacjaObecnosc.Admin;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.aplikacjaObecnosc.NfcModule;
@@ -28,15 +31,19 @@ public class DodajZajeciaAdapter extends ArrayAdapter<Zajecia> {
     private TextView item_temat;
     private TextView item_lokalizacja;
     private TextView item_czas;
-    private ImageButton item_usun;
+    private Button item_usun;
+    private MobileServiceTable<Zajecia> mZajecia = ServiceClient.getmInstance().getmZajeciaTable();
+    private Typeface font;
+    private Boolean misNFC ;
 
 
     private final Context mContext;
     private final int ResourceId;
-    public DodajZajeciaAdapter(@NonNull Context context, int resource) {
+    public DodajZajeciaAdapter(@NonNull Context context, int resource, boolean isNFC) {
         super(context, resource);
         mContext = context;
         ResourceId = resource;
+        misNFC = isNFC;
     }
 
     @NonNull
@@ -59,21 +66,33 @@ public class DodajZajeciaAdapter extends ArrayAdapter<Zajecia> {
         item_lokalizacja.setText(currentItem.getLokalizacja());
         item_czas = row.findViewById(R.id.tvCzas);
         item_czas.setText(currentItem.getData());
-        item_usun = row.findViewById(R.id.bUsunZajecia);
+       item_usun = row.findViewById(R.id.bUsunZajecia);
+
+        if(!misNFC) {
+            item_usun.setText(mContext.getResources().getString(R.string.fa_trash));
+            font = Typeface.createFromAsset(getContext().getAssets(), "fontawesome-webfont.ttf");
+            item_usun.setTypeface(font);
+        }else{
+            item_usun.setText(mContext.getResources().getString(R.string.fa_id_card_alt));
+            font = Typeface.createFromAsset(getContext().getAssets(), "fontawesome-webfont.ttf");
+            item_usun.setTypeface(font);
+        }
         final String nr_id = currentItem.getaId();
 
         final View finalRow = row;
         item_usun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(misNFC) {
+                    Intent intent = new Intent(v.getContext(), NfcModule.class);
+                    intent.putExtra("ZajeciaId", currentItem.getaId());
+                    startActivity(getContext(), intent, null);
+                }else{
 
-                Intent intent = new Intent(v.getContext(), NfcModule.class);
-                intent.putExtra("ZajeciaId",currentItem.getaId());
-                startActivity(getContext(),intent,null);
+                    mZajecia.delete(nr_id);
+                    finalRow.setVisibility(View.INVISIBLE);
 
-
-                //mZajecia.delete(nr_id);
-                //finalRow.setVisibility(View.INVISIBLE);
+                }
             }
         });
 

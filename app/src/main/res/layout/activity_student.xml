@@ -1,60 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Student.StudentActivity">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:background="@null"
+            android:onClick="przejdzdoWyswietlZajecia"
+            android:text="@string/fa_list"
+            android:textSize="100dp" />
+
+        <TextView
+            android:id="@+id/textView20"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:visibility="visible">
+            android:layout_height="wrap_content"
+            android:text="Lista zajęć"
+            android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/tvZalogowanyJako"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvZalogowanyJako" />
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:onClick="przejdzDoHasla"
+            android:text="@string/fa_key"
+            android:background="@null"
+            android:textSize="100dp"
+            android:layout_marginTop="20dp"
+            />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="140dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:layout_marginEnd="128dp"
-                android:onClick="przejdzdoWyswietlZajecia"
-                android:text="Zajecia"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zmień hasło"
+            android:gravity="center"
+            />
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="140dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:layout_marginEnd="128dp"
-                android:onClick="przejdzDoHasla"
-                android:text="Zmien Swoje Haslo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:onClick="przypiszELS"
+            android:text="@string/fa_id_card_alt"
+            android:background="@null"
+            android:textSize="100dp"
+            android:layout_marginTop="20dp"
+            />
 
-        </LinearLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Przypisz legitymację"
+            android:gravity="center"
+             />
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+            android:id="@+id/tvZalogowanyJako"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+
+             />
+
+
+</RelativeLayout>

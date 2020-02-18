@@ -18,171 +18,178 @@
                 android:id="@+id/tvlogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:text="Podaj Imie"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.512"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_gravity="center|center_horizontal"
+                android:layout_marginTop="30dp"
+                android:text="Podaj Imię" />
 
-            <EditText
-                android:id="@+id/etImie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="44dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/textView4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvlogin"
-                app:layout_constraintVertical_bias="0.0" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvImieIkona"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="@string/fa_name"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/etImie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                     />
+
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
-                android:layout_height="23dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="24dp"
                 android:text="Podaj Nazwisko"
-                app:layout_constraintBottom_toTopOf="@+id/etNazwisko"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                 />
 
-            <EditText
-                android:id="@+id/etNazwisko"
-                android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="16dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/tvEmail"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ikonaSurname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="@string/surname"
+                    android:textSize="24sp" />
+
+
+                <EditText
+                    android:id="@+id/etNazwisko"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="32dp"
+                android:layout_gravity="center|center_horizontal"
                 android:text="Podaj Email"
-                app:layout_constraintBottom_toTopOf="@+id/etEmail"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.559"
-                app:layout_constraintStart_toStartOf="parent" />
+                />
 
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="56dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/textView6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.615"
-                app:layout_constraintStart_toStartOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvAt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/fa_at"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginBottom="40dp"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="60dp"
+                android:layout_gravity="center|center_horizontal"
                 android:text="Podaj Nr indeksu"
-                app:layout_constraintBottom_toTopOf="@+id/etNrIndeksu"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.531"
-                app:layout_constraintStart_toStartOf="parent" />
+                 />
 
-            <EditText
-                android:id="@+id/etNrIndeksu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="32dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/etSwojeHaslo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvIdStudent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/fa_id_card"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/etNrIndeksu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="40dp"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="PodajHaslo" />
-
-            <EditText
-                android:id="@+id/etSwojeHaslo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/bDodajStudenta"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_gravity="center|center_horizontal"
+                android:text="Podaj Hasło" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvHasloIkona"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/fa_key"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/etSwojeHaslo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+
+                    android:layout_marginBottom="30dp"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/bDodajStudenta"
-                android:layout_width="wrap_content"
+                android:layout_width="209dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="32dp"
+                android:layout_gravity="center|center_horizontal"
+                android:background="@drawable/radious_button"
                 android:onClick="dodajStudenta"
                 android:text="Dodaj Studenta"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:textSize="14sp" />
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

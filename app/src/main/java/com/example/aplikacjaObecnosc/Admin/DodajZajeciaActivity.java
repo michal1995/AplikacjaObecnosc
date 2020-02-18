@@ -1,7 +1,9 @@
 package com.example.aplikacjaObecnosc.Admin;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import java.util.Calendar;
 import java.util.List;
@@ -46,7 +48,10 @@ public class DodajZajeciaActivity extends FragmentActivity {
             }
         });
         ListView lvListaZajec = findViewById(R.id.lvZajecia);
-        mAdapter = new DodajZajeciaAdapter(this,R.layout.wiersz_zajecia);
+        mAdapter = new DodajZajeciaAdapter(this,R.layout.wiersz_zajecia,false);
+        LayoutInflater inflater = getLayoutInflater();
+        ViewGroup header = (ViewGroup)inflater.inflate(R.layout.header_lv,lvListaZajec,false);
+        lvListaZajec.addHeaderView(header);
         lvListaZajec.setAdapter(mAdapter);
         DodajZajeciaDoListy dodajZajeciaDoListy = new DodajZajeciaDoListy(this);
         dodajZajeciaDoListy.execute(new String[0]);

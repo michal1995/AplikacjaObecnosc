@@ -72,7 +72,7 @@ public class StudentLogowanie extends AsyncTask<String,Integer,String>{
     @Override
     protected void onPreExecute() {
         progressDialog = new ProgressDialog(context);
-        progressDialog.setTitle("Stufdent Logowanie");
+        progressDialog.setTitle("Student Logowanie");
         progressDialog.show();
     }
 
@@ -113,7 +113,11 @@ public class StudentLogowanie extends AsyncTask<String,Integer,String>{
     protected void onPostExecute(String s) {
         progressDialog.cancel();
 
-        if (!zalogowanyy.isEmpty()) {
+        if(zalogowanyy.size()==0){
+            Toast.makeText(context, "Nie udało się połączyć. Spróbuj jeszcze raz", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (zalogowanyy.size() != 0) {
 
 
             ZalogowanyStudent.inicjalizacja(zalogowanyy.get(0));

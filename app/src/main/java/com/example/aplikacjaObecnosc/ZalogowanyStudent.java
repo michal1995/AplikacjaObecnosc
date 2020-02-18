@@ -19,7 +19,7 @@ public class ZalogowanyStudent extends AppCompatActivity
         private List<Studenci> listaDodanychUzytkownikow = new ArrayList();
         private Studenci zalogowany;
 
-    public ZalogowanyStudent(Studenci paramStudent)
+        public ZalogowanyStudent(Studenci paramStudent)
         {
 
                     this.zalogowany = paramStudent;
@@ -65,7 +65,7 @@ public class ZalogowanyStudent extends AppCompatActivity
             instance.listaDodanychUzytkownikow.remove(u);
         }
 
-
+        public String getUserId(){return this.zalogowany.getId();}
         public void zerujElemntyListy ()
         {
             instance.listaDodanychUzytkownikow.clear();

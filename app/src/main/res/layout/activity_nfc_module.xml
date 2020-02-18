@@ -30,7 +30,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView3"
-        android:text="TextView"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView3" />
 
     <TextView
@@ -38,6 +37,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/circle_button"
-        android:text="TextView" />
+       />
 
 </RelativeLayout>

@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.IsoDep;
+import android.nfc.tech.MifareClassic;
 import android.nfc.tech.Ndef;
 import android.nfc.tech.NfcA;
 import android.os.AsyncTask;
@@ -23,6 +24,7 @@ import com.example.aplikacjaObecnosc.Admin.Zajecia;
 import com.example.aplikacjaObecnosc.Student.Grupa;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -42,12 +44,12 @@ public class NfcModule extends AppCompatActivity {
     private MobileServiceTable<Grupa> mGrupaTable = ServiceClient.getmInstance().getClient().getTable(Grupa.class);
     Grupa mGrupa;
     ProgressDialog progressDialog;
-
+    MifareClassic mfc;
     private final String[][] techList = new String[][]{
             new String[]{
                     NfcA.class.getName(),
                     IsoDep.class.getName(),
-                    //MifareClassic.class.getName(),
+                    MifareClassic.class.getName(),
                     Ndef.class.getName()
             }
     };
@@ -85,7 +87,7 @@ public class NfcModule extends AppCompatActivity {
             Toast.makeText(this, "Nasłuchiwanie przerwano", Toast.LENGTH_LONG).show();
         }else{
             startListen = true;
-            Toast.makeText(this, "Rozpoczeto przerwano", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Nasłuchiwanie Rozpoczeto", Toast.LENGTH_LONG).show();
         }
 
 
@@ -124,12 +126,14 @@ public class NfcModule extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         if (intent.getAction().equals(NfcAdapter.ACTION_TAG_DISCOVERED)) {
-            textViewInfo.setText("NFC Tag\n" + ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID)));
+            //textViewInfo.setText("NFC Tag\n" + ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID)));
             //tag = intent.getParcelableExtra(NfcAdapter.EXTRA_DATA);
-           // tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-                dodajStudenta(intent);
-            //textinfo.setText("dsads");
+            tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+               // dodajStudenta(intent);
 
+            //textinfo.setText(NfcAdapter.ACTION_TAG_DISCOVERED);
+            textViewInfo.setText(readTagClassic(tag));
+            //NfcA.get(tag);
             //Log.i("TagExtra", " taggeg" + tag.toString());
 //            addPresenceNFC = new AddPresenceNFC();
 //            addPresenceNFC.execute(ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID)));
@@ -180,7 +184,7 @@ public class NfcModule extends AppCompatActivity {
 
     }
 
-    private String ByteArrayToHexString(byte[] inarray) {
+    public String ByteArrayToHexString(byte[] inarray) {
         int i, j, in;
         String[] hex = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
         String out = "";
@@ -193,6 +197,78 @@ public class NfcModule extends AppCompatActivity {
             out += hex[i];
         }
         return out;
+    }
+
+    public String readTagClassic(Tag tag) {
+        boolean auth = false;
+        mfc = MifareClassic.get(tag);
+        // 读取TAG
+        NfcA asd = NfcA.get(tag);
+
+
+        Log.i("tagNfca",": " + asd.getAtqa());
+        Log.i("tagNfcaa",": " + mfc.getBlockCount());
+
+        try {
+            String metaInfo = "";
+            int type = mfc.getType();// 获取TAG的类型
+            int sectorCount = mfc.getSectorCount();// 获取TAG中包含的扇区数
+            String typeS = "";
+            switch (type) {
+                case MifareClassic.TYPE_CLASSIC:
+                    typeS = "TYPE_CLASSIC";
+                    break;
+                case MifareClassic.TYPE_PLUS:
+                    typeS = "TYPE_PLUS";
+                    break;
+                case MifareClassic.TYPE_PRO:
+                    typeS = "TYPE_PRO";
+                    break;
+                case MifareClassic.TYPE_UNKNOWN:
+                    typeS = "TYPE_UNKNOWN";
+                    break;
+            }
+            metaInfo += "卡片类型：" + typeS + "\n共" + sectorCount + "个扇区\n共"
+                    + mfc.getBlockCount() + "个块\n存储空间: " + mfc.getSize()
+                    + "B\n";
+            for (int j = 0; j < sectorCount; j++) {
+                // Authenticate a sector with key A.
+
+                auth = mfc.authenticateSectorWithKeyA(j,
+                        MifareClassic.KEY_DEFAULT);
+                int bCount;
+                int bIndex;
+                if (auth) {
+                    metaInfo += "Sector " + j + ":验证成功\n";
+                    // 读取扇区中的块
+                    bCount = mfc.getBlockCountInSector(j);
+                    bIndex = mfc.sectorToBlock(j);
+                    for (int i = 0; i < bCount; i++) {
+                        byte[] data = mfc.readBlock(bIndex);
+                        metaInfo += "Block " + bIndex + " : "
+                                + ByteArrayToHexString(data) + "\n";
+                        bIndex++;
+                    }
+                } else {
+                    metaInfo += "Sector " + j + ":验证失败\n";
+                }
+            }
+            return metaInfo;
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        } finally {
+            if (mfc != null) {
+                try {
+                    mfc.close();
+                } catch (IOException e) {
+                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        }
+        return null;
+
     }
 
 }

@@ -5,4 +5,19 @@
     <string name="admin">Admin</string>
     <string name="sign_in">sign in</string>
     <string name="index_or_email">Index or Email</string>
+    <string name="fa_list">&#xf03a;</string>
+    <string name="fa_key">&#xf084;</string>
+    <string name="fa_id_card_alt">&#xf2bb;</string>
+    <string name="fa_user_friend">&#xf0c0;</string>
+    <string name="fa_tasks">&#xf19c;</string>
+    <string name="fa_user">&#xf234;</string>
+    <string name="fa_trash">&#xf1f8;</string>
+    <string name="fa_at">&#xf1fa;</string>
+    <string name="fa_id_card">&#xf2c2;</string>
+    <string name="fa_name">&#xf007;</string>
+    <string name="surname">&#xf507;</string>
+
+
+
+
 </resources>
