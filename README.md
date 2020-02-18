@@ -1,11 +1,11 @@
 # AplikacjaObecnosc - attendance list app
-Attendace list is a mobile app for student's and lecturer. Purpose of the project is check student present.
+Attendace list is a mobile app for student and lecturer. The main objective of the project  is check student present.
 Mobile app is divided into two parts: Administrator can add lectures and manage student accounts
 and Student who can add own presence to attendance list.
-The project will be created for the needs of graduation work.
+
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Example Gif](./img/GIFF.gif)
 
 ## Technologies
     
@@ -19,33 +19,38 @@ The project will be created for the needs of graduation work.
 ## Features
  List of features ready.
 
-            Administrator's capabilities:
+   Administrator capabilities:
 
-            - login to the system
+   - login to the system
 
-            - display list of students
+   - display list of students
 
-            - add / edit / delete the student's account
+   - add / delete the student account
 
-            - change of the student's account password
+   - change of the student account password
 
-            - add / edit / remove lectures
+   - add / edit / remove lectures
 
 
-            Student's options:
+   Student options:
+        
+   - Login to the system
 
-             - Login to the system
-
-             - display a list of all classes
-
-             - sign up for a list of attendance at specific classes
-
-             - edit information about yourself
-
-             - password change
+   - display a list of all classes
+             
+   - password change
              
  TODOs for future development.
-            - The student will be use electronic ID to mark presence on lecture
+ 
+   - Administrator edit student account
+  
+   - Administrator edit lectures
+            
+   - Student sign up for a list of attendance at specific classes
+   
+   - Student edit information about yourself
+   
+   - Student will be use electronic ID to mark presence on lecture
 
 
 ## Status
@@ -56,4 +61,4 @@ This app is inspired by Microsoft documentation
 (https://docs.microsoft.com/pl-pl/azure/app-service-mobile/app-service-mobile-android-how-to-use-client-library)
 
 ## Contact
-Created by Michał Respekta (email: michal.respekta@gmail.com ) - feel free to contact me!
+Created by Michał Respekta (email: respekta.michal@gmail.com ) - feel free to contact me!
